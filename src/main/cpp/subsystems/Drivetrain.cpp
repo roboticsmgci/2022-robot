@@ -5,7 +5,8 @@
 #include "subsystems/Drivetrain.h"
 
 #include <frc/Joystick.h>
-#include <frc/drive/DifferentialDrive.h>
+#include <frc/smartdashboard/SmartDashboard.h>
+
 #include "rev/CANSparkMax.h"
 
 Drivetrain::Drivetrain() {
@@ -15,8 +16,6 @@ Drivetrain::Drivetrain() {
   rev::CANSparkMax m_rightLeadMotor{rightLeadDeviceID, rev::CANSparkMax::MotorType::kBrushed};
   rev::CANSparkMax m_leftFollowMotor{leftFollowDeviceID, rev::CANSparkMax::MotorType::kBrushed};
   rev::CANSparkMax m_rightFollowMotor{rightFollowDeviceID, rev::CANSparkMax::MotorType::kBrushed};
-
-  frc::DifferentialDrive m_robotDrive{m_leftLeadMotor, m_rightLeadMotor};
 
   // Restores factory defaults, does not persist
   m_leftLeadMotor.RestoreFactoryDefaults();
@@ -35,11 +34,11 @@ Drivetrain::Drivetrain() {
   SetName("Drivetrain");
 }
 
-void ExampleSubsystem::Periodic() {
+void Drivetrain::Periodic() {
   // Implementation of subsystem periodic method goes here.
 }
 
-void ExampleSubsystem::SimulationPeriodic() {
+void Drivetrain::SimulationPeriodic() {
   // Implementation of subsystem simulation periodic method goes here.
 }
 

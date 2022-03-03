@@ -4,6 +4,8 @@
 
 #include "commands/ArcadeDrive.h"
 
+#include <utility>
+
 #include "Robot.h"
 
 // Initialises the command with its name and requirements
@@ -19,11 +21,11 @@ void ArcadeDrive::Execute() {
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool TankDrive::IsFinished() {
+bool ArcadeDrive::IsFinished() {
   return false;
 }
 
 // Called once after isFinished returns true
-void TankDrive::End(bool) {
+void ArcadeDrive::End(bool) {
   m_drivetrain->Drive(0, 0);
 }

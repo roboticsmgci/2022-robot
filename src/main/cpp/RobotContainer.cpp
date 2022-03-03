@@ -4,11 +4,12 @@
 
 #include "RobotContainer.h"
 
+#include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/Joystick.h>
 
 #include "commands/ArcadeDrive.h"
 
-RobotContainer::RobotContainer() : m_autonomousCommand(&m_drivetrain) {
+RobotContainer::RobotContainer() : m_autonomousCommand(m_drivetrain) {
   // Initialize all of your commands and subsystems here
   frc::Joystick m_stick{0};
   m_drivetrain.SetDefaultCommand(ArcadeDrive([this] { return -m_stick.GetY() * m_stick.GetThrottle(); }, [this] { return -m_stick.GetX() * m_stick.GetThrottle(); }, m_drivetrain));
