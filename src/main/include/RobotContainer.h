@@ -4,10 +4,10 @@
 
 #pragma once
 
+#include <frc/Joystick.h>
 #include <frc2/command/Command.h>
 
-#include "commands/ExampleCommand.h"
-#include "subsystems/ExampleSubsystem.h"
+#include "subsystems/Drivetrain.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -23,9 +23,11 @@ class RobotContainer {
   frc2::Command* GetAutonomousCommand();
 
  private:
+  // This declares the joystick 
+  frc::Joystick m_stick{0};
+  
   // The robot's subsystems and commands are defined here...
-  ExampleSubsystem m_subsystem;
-  ExampleCommand m_autonomousCommand;
+  Drivetrain m_drivetrain;
 
   void ConfigureButtonBindings();
 };

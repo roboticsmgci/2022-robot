@@ -11,11 +11,6 @@
 
 Drivetrain::Drivetrain() {
   // Implementation of subsystem constructor goes here.
-  static const int leftLeadDeviceID = 1, leftFollowDeviceID = 2, rightLeadDeviceID = 3, rightFollowDeviceID = 4;
-  rev::CANSparkMax m_leftLeadMotor{leftLeadDeviceID, rev::CANSparkMax::MotorType::kBrushed};
-  rev::CANSparkMax m_rightLeadMotor{rightLeadDeviceID, rev::CANSparkMax::MotorType::kBrushed};
-  rev::CANSparkMax m_leftFollowMotor{leftFollowDeviceID, rev::CANSparkMax::MotorType::kBrushed};
-  rev::CANSparkMax m_rightFollowMotor{rightFollowDeviceID, rev::CANSparkMax::MotorType::kBrushed};
 
   // Restores factory defaults, does not persist
   m_leftLeadMotor.RestoreFactoryDefaults();
@@ -38,10 +33,6 @@ void Drivetrain::Periodic() {
   // Implementation of subsystem periodic method goes here.
 }
 
-void Drivetrain::SimulationPeriodic() {
-  // Implementation of subsystem simulation periodic method goes here.
-}
-
 void Drivetrain::Drive(double speed, double rotation) {
-    m_robotdrive.ArcadeDrive(speed, rotation);
+    m_robotDrive.ArcadeDrive(speed, rotation);
 }
