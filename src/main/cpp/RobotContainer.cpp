@@ -10,10 +10,14 @@
 
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
-  m_drivetrain.SetDefaultCommand(ArcadeDrive([this] { return m_stick.GetY() * (-m_stick.GetThrottle() + 1) / 2; }, [this] { return m_stick.GetX() * (-m_stick.GetThrottle() + 1) / 2; }, m_drivetrain));
+  m_drivetrain.SetDefaultCommand(ArcadeDrive(
+    [this] {return m_stick.GetY() * (-m_stick.GetThrottle() + 1) / 2; }, 
+    [this] {return m_stick.GetZ() * (-m_stick.GetThrottle() + 1) / 2; }, 
+    m_drivetrain));
 
   // Configure the button bindings
   ConfigureButtonBindings();
+
 }
 
 void RobotContainer::ConfigureButtonBindings() {

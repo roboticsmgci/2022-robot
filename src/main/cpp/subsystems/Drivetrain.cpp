@@ -27,6 +27,7 @@ Drivetrain::Drivetrain() {
   m_rightFollowMotor.Follow(m_rightLeadMotor);
 
   SetName("Drivetrain");
+  
 }
 
 void Drivetrain::Periodic() {
