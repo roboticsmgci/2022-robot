@@ -6,13 +6,13 @@
 
 #include <frc/smartdashboard/SmartDashboard.h>
 
-#include "commands/ArcadeDrive.h"
+#include "commands/TankDrive.h"
 
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
-  m_drivetrain.SetDefaultCommand(ArcadeDrive(
-    [this] {return m_stick.GetY() * (-m_stick.GetThrottle() + 1) / 2; }, 
-    [this] {return m_stick.GetZ() * (-m_stick.GetThrottle() + 1) / 2; }, 
+  m_drivetrain.SetDefaultCommand(TankDrive(
+    [this] {return m_stick1.GetY() * (m_stick1.GetThrottle() + 1) / 2; }, 
+    [this] {return m_stick2.GetY() * (m_stick2.GetThrottle() + 1) / 2; }, 
     m_drivetrain));
 
   // Configure the button bindings

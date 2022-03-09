@@ -23,10 +23,10 @@ class Drivetrain : public frc2::SubsystemBase {
 
   /**
    * Arcade style driving for the Drivetrain.
-   * @param speed
-   * @param rotation
+   * @param left
+   * @param right
    */
-  void Drive(double speed, double rotation);
+  void Drive(double left, double right);
 
   void Periodic() override;
 
