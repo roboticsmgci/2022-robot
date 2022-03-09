@@ -19,7 +19,7 @@ Drivetrain::Drivetrain() {
   m_rightFollowMotor.RestoreFactoryDefaults();
 
   // Inverts one side of the drivetrain
-  // m_leftLeadMotor.SetInverted(true);
+  m_leftLeadMotor.SetInverted(true);
   // m_leftFollowMotor.SetInverted(true);
 
   // Configures the motors to follow each other
