@@ -11,8 +11,8 @@
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
   m_drivetrain.SetDefaultCommand(TankDrive(
-    [this] {return m_stick1.GetY() * (-m_stick1.GetThrottle() + 1) / 2; }, 
-    [this] {return m_stick2.GetY() * (-m_stick1.GetThrottle() + 1) / 2; }, 
+    [this] {return m_stick2.GetY() * (-m_stick2.GetThrottle() + 1) / 2; }, 
+    [this] {return m_stick1.GetY() * (-m_stick2.GetThrottle() + 1) / 2; }, 
     m_drivetrain));
 
   // Configure the button bindings
