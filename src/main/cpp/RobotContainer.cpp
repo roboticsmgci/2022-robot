@@ -5,8 +5,10 @@
 #include "RobotContainer.h"
 
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <frc2/command/button/JoystickButton.h>
 
 #include "commands/TankDrive.h"
+#include "commands/SpinPropeller.h"
 
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
@@ -25,7 +27,9 @@ RobotContainer::RobotContainer() {
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-  // Configure your button bindings here
+    frc2::JoystickButton(&m_stick2,2).WhenPressed(
+        SpinPropeller(m_propeller)
+    );
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

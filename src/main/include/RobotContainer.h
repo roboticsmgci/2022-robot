@@ -8,6 +8,7 @@
 #include <frc2/command/Command.h>
 
 #include "subsystems/Drivetrain.h"
+#include "subsystems/Propeller.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -27,6 +28,8 @@ class RobotContainer {
   frc::Joystick m_stick1{0};
   frc::Joystick m_stick2{1};
   
+  Propeller m_propeller;
+
   // The robot's subsystems and commands are defined here...
   Drivetrain m_drivetrain;
 
