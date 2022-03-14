@@ -1,6 +1,7 @@
 #include "commands/SpinPropeller.h"
 
 #include "Robot.h"
+#include "RobotContainer.h"
 
 SpinPropeller::SpinPropeller(Propeller& propeller) : m_propeller(&propeller){
     SetName("SpinPropeller");
@@ -10,11 +11,6 @@ SpinPropeller::SpinPropeller(Propeller& propeller) : m_propeller(&propeller){
 // Called just before this Command runs the first time
 void SpinPropeller::Initialize() {
   m_propeller->Rotate();
-}
-
-// Make this return true when this Command no longer needs to run execute()
-bool SpinPropeller::IsFinished() {
-  return false;
 }
 
 // Called once after isFinished returns true

@@ -27,7 +27,7 @@ RobotContainer::RobotContainer() {
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-    frc2::JoystickButton(&m_stick2,3).WhenPressed(
+    frc2::JoystickButton(&m_stick2,3).WhenHeld(
         SpinPropeller(m_propeller)
     );
 }

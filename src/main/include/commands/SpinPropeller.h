@@ -9,7 +9,6 @@ class SpinPropeller : public frc2::CommandHelper<frc2::CommandBase, SpinPropelle
     public:
         explicit SpinPropeller(Propeller& propeller);
         void Initialize() override;
-        bool IsFinished() override;
         void End(bool interrupted) override;
     
     private:
