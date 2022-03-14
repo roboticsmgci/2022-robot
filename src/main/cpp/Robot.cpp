@@ -11,10 +11,9 @@
 #include <cameraserver/CameraServer.h>
 
 void Robot::RobotInit() {
-
-  frc::CameraServer::StartAutomaticCapture();
-
-}
+    frc::CameraServer::GetInstance()->StartAutomaticCapture(0);
+    frc::CameraServer::GetInstance()->StartAutomaticCapture(1);
+  }
 
 /**
  * This function is called every robot packet, no matter the mode. Use
