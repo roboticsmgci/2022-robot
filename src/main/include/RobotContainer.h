@@ -28,9 +28,9 @@ class RobotContainer {
   frc::Joystick m_stick1{0};
   frc::Joystick m_stick2{1};
   
-  Propeller m_propeller;
 
   // The robot's subsystems and commands are defined here...
+  Propeller m_propeller;
   Drivetrain m_drivetrain;
 
   void ConfigureButtonBindings();
