@@ -18,20 +18,19 @@
  * commands, and button mappings) should be declared here.
  */
 class RobotContainer {
- public:
-  RobotContainer();
 
-  frc2::Command* GetAutonomousCommand();
+    public:
 
- private:
-  // This declares the joystick 
-  frc::Joystick m_stick1{0};
-  frc::Joystick m_stick2{1};
-  
+        RobotContainer();
+        frc2::Command* GetAutonomousCommand();
 
-  // The robot's subsystems and commands are defined here...
-  Propeller m_propeller;
-  Drivetrain m_drivetrain;
+    private:
 
-  void ConfigureButtonBindings();
+        frc::Joystick m_stick1{0};
+        frc::Joystick m_stick2{1};
+
+        Drivetrain m_drivetrain;
+        Propeller m_propeller;
+
+        void ConfigureButtonBindings();
 };

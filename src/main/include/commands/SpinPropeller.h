@@ -5,12 +5,15 @@
 
 #include "subsystems/Propeller.h"
 
-class SpinPropeller : public frc2::CommandHelper<frc2::CommandBase, SpinPropeller> {
+class SpinPropeller: public frc2::CommandHelper<frc2::CommandBase, SpinPropeller> {
+
     public:
+
         explicit SpinPropeller(Propeller& propeller);
         void Initialize() override;
         void End(bool interrupted) override;
     
     private:
+
         Propeller* m_propeller;
 };

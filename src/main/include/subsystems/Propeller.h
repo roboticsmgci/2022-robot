@@ -5,19 +5,14 @@
 
 class Propeller : public frc2::SubsystemBase {
 
- public:
+    public:
 
-  Propeller();
+        Propeller();
+        void Rotate();
+        void Stop();
 
-  void Rotate();
+    private:
 
-  void Stop();
-
- private:
-
-  rev::CANSparkMax m_motor{5,rev::CANSparkMax::MotorType::kBrushed};
-  // Components (e.g. motor controllers and sensors) should generally be
-
-  // declared private and exposed only through public methods.
+        rev::CANSparkMax m_motor{5,rev::CANSparkMax::MotorType::kBrushed};
 
 };
