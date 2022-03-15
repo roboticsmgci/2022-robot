@@ -32,5 +32,7 @@ class RobotContainer {
         Drivetrain m_drivetrain;
         Propeller m_propeller;
 
+        double speed = 0;
+
         void ConfigureButtonBindings();
 };

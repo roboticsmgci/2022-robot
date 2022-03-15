@@ -12,20 +12,38 @@
 
 RobotContainer::RobotContainer() {
     // Initialize all of your commands and subsystems here
-    m_drivetrain.SetDefaultCommand(TankDrive(
-        [this] {return (m_stick2.GetY() * (-m_stick2.GetThrottle() + 2) / 3) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)/*tank*/
-            + (m_stick2.GetY() + m_stick2.GetZ()) * ((-m_stick2.GetThrottle() + 2) / 3) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
-            ; }, 
-        [this] {return ((m_stick1.GetY() * ((int)!m_stick2.GetRawButton(1)) + m_stick2.GetY() * ((int)m_stick2.GetRawButton(1))) * (-m_stick2.GetThrottle() + 2) / 3) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)/*tank*/
-            + (m_stick2.GetY() - m_stick2.GetZ()) * ((-m_stick2.GetThrottle() + 2) / 3) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
-            ; }, 
-    m_drivetrain));
-
-  // Configure the button bindings
-    ConfigureButtonBindings();
+    // ((-m_stick2.GetThrottle() + 2) / 3)
+    m_drivetrain.SetDefaultCommand(
+        TankDrive(
+            [this] {
+                return (
+                    (
+                        m_stick2.GetY() * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)/*tank*/
+                        + (m_stick2.GetY() + m_stick2.GetZ()) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
+                    ) * speed
+                ); 
+            },
+            [this] {
+                return (
+                    (
+                        (m_stick1.GetY() * ((int)!m_stick2.GetRawButton(1)) + m_stick2.GetY() * ((int)m_stick2.GetRawButton(1))) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)/*tank*/
+                        + (m_stick2.GetY() - m_stick2.GetZ()) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
+                    ) * speed
+                );
+            }, 
+            m_drivetrain
+        )
+    );
 
     // Configure the button bindings
     ConfigureButtonBindings();
+
+    if (m_stick2.GetRawButton(3)){
+        speed += 0.01;
+    }
+    if (m_stick2.GetRawButton(5)){
+        speed -= 0.01;
+    }
 }
 
 void RobotContainer::ConfigureButtonBindings() {
