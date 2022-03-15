@@ -3,9 +3,11 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 Propeller::Propeller() {
+
   m_motor.RestoreFactoryDefaults();
 
   SetName("Propeller");
+
 }
 
 void Propeller::Rotate(){

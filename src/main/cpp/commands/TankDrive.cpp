@@ -9,10 +9,17 @@
 #include "Robot.h"
 
 // Initialises the command with its name and requirements
-TankDrive::TankDrive(std::function<double()> left, std::function<double()> right, Drivetrain& drivetrain)
-    : m_left(std::move(left)), m_right(std::move(right)), m_drivetrain(&drivetrain) {
+TankDrive::TankDrive(
+        std::function<double()> left,
+        std::function<double()> right,
+        Drivetrain& drivetrain):
+            m_left(std::move(left)),
+            m_right(std::move(right)),
+            m_drivetrain(&drivetrain){
+
     SetName("TankDrive");
     AddRequirements({m_drivetrain});
+
 }
 
 // Called repeatedly when this Command is scheduled to run
