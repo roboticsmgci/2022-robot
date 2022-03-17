@@ -7,6 +7,8 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/button/JoystickButton.h>
 
+#include <cmath>
+
 #include "commands/TankDrive.h"
 // #include "commands/SpinPropeller.h"
 
@@ -19,7 +21,7 @@ RobotContainer::RobotContainer() {
                 return (
                     (
                         m_stick2.GetY() * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)/*tank*/
-                        + (m_stick2.GetY() + m_stick2.GetZ()) / (m_stick2.GetY() + m_stick2.GetZ()) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
+                        + (m_stick2.GetY() * (1 - std::abs(m_stick2.GetZ())) + m_stick2.GetZ()) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
                 ); 
             },
@@ -27,7 +29,7 @@ RobotContainer::RobotContainer() {
                 return (
                     (
                         (m_stick1.GetY() * ((int)!m_stick2.GetRawButton(1)) + m_stick2.GetY() * ((int)m_stick2.GetRawButton(1))) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)/*tank*/
-                        + (m_stick2.GetY() - m_stick2.GetZ()) / (m_stick2.GetY() + m_stick2.GetZ()) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
+                        + (m_stick2.GetY() * (1 - std::abs(m_stick2.GetZ())) - m_stick2.GetZ()) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
                 );
             }, 
@@ -47,9 +49,9 @@ RobotContainer::RobotContainer() {
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-    frc2::JoystickButton(&m_stick2,2).WhenHeld(
-        SpinPropeller(m_propeller)
-    );
+    // frc2::JoystickButton(&m_stick2,2).WhenHeld(
+    //     SpinPropeller(m_propeller)
+    // );
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

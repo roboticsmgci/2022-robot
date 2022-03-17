@@ -30,7 +30,7 @@ class RobotContainer {
         frc::Joystick m_stick2{1};
 
         Drivetrain m_drivetrain;
-        Propeller m_propeller;
+        // Propeller m_propeller;
 
         double speed = 0;
 
