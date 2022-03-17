@@ -18,13 +18,17 @@ DriveBack::DriveBack(
 
 // Called just before this Command runs the first time
 void DriveBack::Initialize() {
+    duration_counter = 0;
     // Get everything in a safe starting state.
     m_drivetrain->Drive(0, 0);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveBack::Execute() {
-    m_drivetrain->Drive(0.5, 0.5);
+    if (duration_counter < 150){
+        m_drivetrain->Drive(0.5, 0.5);
+        duration_counter++;
+    }
 }
 
 // Make this return true when this Command no longer needs to run execute()
