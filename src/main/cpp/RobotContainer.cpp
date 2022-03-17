@@ -20,16 +20,54 @@ RobotContainer::RobotContainer() {
             [this] {
                 return (
                     (
-                        m_stick2.GetY() * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)/*tank*/
-                        + (m_stick2.GetY() * (1 - std::abs(m_stick2.GetZ())) + m_stick2.GetZ()) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
+                        // tank
+                        m_stick2.GetY()
+                            * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2) 
+                        // tank
+                        +
+                        // arcade
+                        (m_stick2.GetY()
+                            * (
+                                1 - std::abs(
+                                    m_stick2.GetZ()
+                                        * (int)!m_stick2.GetRawButton(1)
+                                )
+                            )
+                        + m_stick2.GetZ()
+                            * 0.75
+                            * (int)!m_stick2.GetRawButton(1)
+                        
+                        ) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
+                        // arcade
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
                 ); 
             },
             [this] {
                 return (
                     (
-                        (m_stick1.GetY() * ((int)!m_stick2.GetRawButton(1)) + m_stick2.GetY() * ((int)m_stick2.GetRawButton(1))) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)/*tank*/
-                        + (m_stick2.GetY() * (1 - std::abs(m_stick2.GetZ())) - m_stick2.GetZ()) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
+                        // tank
+                        (
+                            m_stick1.GetY()
+                                * (int)!m_stick2.GetRawButton(1)
+                            + m_stick2.GetY()
+                                * (int)m_stick2.GetRawButton(1)
+                        ) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)
+                        // tank
+                        + 
+                        // arcade
+                        (
+                            m_stick2.GetY()
+                                * (
+                                    1 - std::abs(
+                                        m_stick2.GetZ()
+                                            * (int)!m_stick2.GetRawButton(1)
+                                    )
+                                )
+                            - m_stick2.GetZ()
+                                * 0.75
+                                * (int)!m_stick2.GetRawButton(1)
+                        ) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
+                        // arcade
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
                 );
             }, 
@@ -56,5 +94,5 @@ void RobotContainer::ConfigureButtonBindings() {
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
     // An example command will be run in autonomous
-    return nullptr;
+    return &m_autonomousCommand;
 }
