@@ -8,6 +8,9 @@
 #include "rev/CANSparkMax.h"
 #include <frc2/command/SubsystemBase.h>
 
+#include "AHRS.h"
+#include "frc/SPI.h"
+
 namespace frc {
     class Joystick;
 }
@@ -23,6 +26,7 @@ class Drivetrain: public frc2::SubsystemBase {
 
         Drivetrain();
         void Drive(double left, double right);
+        void Log();
         void Periodic() override;
 
     private:
@@ -34,4 +38,8 @@ class Drivetrain: public frc2::SubsystemBase {
         rev::CANSparkMax m_rightFollowMotor{rightFollowDeviceID, rev::CANSparkMax::MotorType::kBrushed};
 
         frc::DifferentialDrive m_robotDrive{m_leftLeadMotor, m_rightLeadMotor};
+
+        // Gyro
+        AHRS m_navX{frc::SPI::Port::kMXP};
+
 };
