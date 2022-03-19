@@ -28,4 +28,5 @@ class DriveBack: public frc2::CommandHelper<frc2::CommandBase, DriveBack> {
     private:
 
         Drivetrain* m_drivetrain;
+        int duration_counter;
 };
