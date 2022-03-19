@@ -21,8 +21,12 @@ RobotContainer::RobotContainer() {
                 return (
                     (
                         // tank
-                        m_stick2.GetY()
-                            * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2) 
+                        (
+                            m_stick2.GetY()
+                                * (int)!(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
+                            + (m_stick1.GetY() + m_stick2.GetY()) / 2
+                                * (int)(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
+                        ) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)
                         // tank
                         +
                         // arcade
@@ -40,7 +44,7 @@ RobotContainer::RobotContainer() {
                         ) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
                         // arcade
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
-                ); 
+                );
             },
             [this] {
                 return (
@@ -48,9 +52,9 @@ RobotContainer::RobotContainer() {
                         // tank
                         (
                             m_stick1.GetY()
-                                * (int)!m_stick2.GetRawButton(1)
-                            + m_stick2.GetY()
-                                * (int)m_stick2.GetRawButton(1)
+                                * (int)!(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
+                            + (m_stick1.GetY() + m_stick2.GetY()) / 2
+                                * (int)(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
                         ) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)
                         // tank
                         + 
@@ -70,7 +74,7 @@ RobotContainer::RobotContainer() {
                         // arcade
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
                 );
-            }, 
+            },
             m_drivetrain
         )
     );
