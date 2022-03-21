@@ -14,10 +14,10 @@
 Drivetrain::Drivetrain() {
 
     // Restores factory defaults, does not persist
-    m_leftLeadMotor.RestoreFactoryDefaults();
-    m_rightLeadMotor.RestoreFactoryDefaults();
-    m_leftFollowMotor.RestoreFactoryDefaults();
-    m_rightFollowMotor.RestoreFactoryDefaults();
+    // m_leftLeadMotor.RestoreFactoryDefaults();
+    // m_rightLeadMotor.RestoreFactoryDefaults();
+    // m_leftFollowMotor.RestoreFactoryDefaults();
+    // m_rightFollowMotor.RestoreFactoryDefaults();
 
     // Inverts one side of the drivetrain
     m_leftLeadMotor.SetInverted(true);
