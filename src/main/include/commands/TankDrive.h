@@ -13,9 +13,7 @@
  * Have the robot drive tank style using the PS3 Joystick until interrupted.
  */
 class TankDrive: public frc2::CommandHelper<frc2::CommandBase, TankDrive> {
-
     public:
-
         TankDrive(std::function<double()> left,
                   std::function<double()> right,
                   Drivetrain& drivetrain);
@@ -24,7 +22,6 @@ class TankDrive: public frc2::CommandHelper<frc2::CommandBase, TankDrive> {
         void End(bool interrupted) override;
 
     private:
-
         std::function<double()> m_left;
         std::function<double()> m_right;
         Drivetrain* m_drivetrain;

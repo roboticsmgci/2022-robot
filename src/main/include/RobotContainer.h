@@ -7,9 +7,8 @@
 #include <frc/Joystick.h>
 #include <frc2/command/Command.h>
 
-#include "commands/Autonomous.h"
 #include "subsystems/Drivetrain.h"
-// #include "subsystems/Propeller.h"
+#include "subsystems/Intake.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -21,14 +20,13 @@
 class RobotContainer {
 
     public:
-
         RobotContainer();
         frc2::Command* GetAutonomousCommand();
 
     private:
-
         frc::Joystick m_stick1{0};
         frc::Joystick m_stick2{1};
+        frc::Joystick m_stick3{2};
 
         Drivetrain m_drivetrain;
         // Propeller m_propeller;
