@@ -29,7 +29,7 @@ class RobotContainer {
         frc::Joystick m_stick3{2};
 
         Drivetrain m_drivetrain;
-        // Propeller m_propeller;
+        Intake m_intake;
 
         Autonomous m_autonomousCommand{m_drivetrain};
 

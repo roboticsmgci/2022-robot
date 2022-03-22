@@ -4,7 +4,7 @@
 
 Intake::Intake(){
     m_motor.RestoreFactoryDefaults();
-    SetName("Propeller");
+    SetName("Intake");
 }
 
 void Intake::Rotate(double speed){
