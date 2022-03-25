@@ -9,7 +9,6 @@
 
 #include <cmath>
 
-#include "commands/Autonomous.h" // TODO this was originally in header file, may break
 #include "commands/TankDrive.h"
 #include "commands/IntakeIn.h"
 #include "commands/IntakeOut.h"
@@ -94,10 +93,10 @@ RobotContainer::RobotContainer() {
 
 void RobotContainer::ConfigureButtonBindings() {
     frc2::JoystickButton(&m_stick3,3).WhenHeld(
-        IntakeIn(m_intake);
+        IntakeIn(m_intake)
     );
     frc2::JoystickButton(&m_stick3,5).WhenHeld(
-        IntakeOut(m_intake);
+        IntakeOut(m_intake)
     );
 
 }

@@ -7,6 +7,8 @@
 #include <frc/Joystick.h>
 #include <frc2/command/Command.h>
 
+#include "commands/Autonomous.h"
+
 #include "subsystems/Drivetrain.h"
 #include "subsystems/Intake.h"
 

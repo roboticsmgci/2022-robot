@@ -11,7 +11,7 @@ class Intake : public frc2::SubsystemBase {
 
     private:
         // TODO make sure wiring is correct.
-        // rev::CANSparkMax m_motor{5, rev::CANSparkMax::MotorType::kBrushed};
+        rev::CANSparkMax m_motor{6, rev::CANSparkMax::MotorType::kBrushed};
 
         double invert = 1; // change to -1 to invert motor direction
 
