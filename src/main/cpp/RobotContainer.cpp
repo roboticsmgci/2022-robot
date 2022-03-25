@@ -10,7 +10,8 @@
 #include <cmath>
 
 #include "commands/TankDrive.h"
-// #include "commands/SpinPropeller.h"
+#include "commands/IntakeIn.h"
+#include "commands/IntakeOut.h"
 
 RobotContainer::RobotContainer() {
     // Initialize all of your commands and subsystems here
@@ -91,9 +92,13 @@ RobotContainer::RobotContainer() {
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-    // frc2::JoystickButton(&m_stick2,2).WhenHeld(
-    //     SpinPropeller(m_propeller)
-    // );
+    frc2::JoystickButton(&m_stick3,3).WhenHeld(
+        IntakeIn(m_intake)
+    );
+    frc2::JoystickButton(&m_stick3,5).WhenHeld(
+        IntakeOut(m_intake)
+    );
+
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
