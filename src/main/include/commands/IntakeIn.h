@@ -9,9 +9,10 @@ class IntakeIn : public frc2::CommandHelper<frc2::CommandBase, IntakeIn> {
     public:
         explicit IntakeIn(Intake& intake);
         void Initialize() override;
+        void Execute() override;
         void End(bool interrupted) override;
     
     private:
         Intake* m_intake;
-        double speed = 1.0;
+        double speed = 0.5;
 };

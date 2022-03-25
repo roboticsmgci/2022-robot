@@ -9,6 +9,10 @@ IntakeIn::IntakeIn(Intake& intake) : m_intake(&intake){
 }
 
 void IntakeIn::Initialize(){
+    m_intake->Stop();
+}
+
+void IntakeIn::Execute() {
     m_intake->Rotate(speed);
 }
 
