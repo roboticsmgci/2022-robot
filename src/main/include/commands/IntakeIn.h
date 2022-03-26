@@ -14,5 +14,5 @@ class IntakeIn : public frc2::CommandHelper<frc2::CommandBase, IntakeIn> {
     
     private:
         Intake* m_intake;
-        double speed = 0.5;
+        double speed = 0.25;
 };
