@@ -11,6 +11,7 @@ class ArmMove: public frc2::CommandHelper<frc2::CommandBase, ArmMove> {
         ArmMove(std::function<double()> speed,
                 Arm& arm);
         void Execute() override;
+        void Stall();
         void End(bool interrupted) override;
 
     private:

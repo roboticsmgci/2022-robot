@@ -19,6 +19,10 @@ void ArmMove::Execute() {
     m_arm->Rotate(m_speed());
 }
 
+void ArmMove::Stall() {
+    m_arm->Rotate(stall_speed);
+}
+
 void ArmMove::End(bool) {
     m_arm->Rotate(0);
 }
