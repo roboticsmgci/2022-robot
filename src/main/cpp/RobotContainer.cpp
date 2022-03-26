@@ -12,6 +12,8 @@
 #include "commands/TankDrive.h"
 #include "commands/IntakeIn.h"
 #include "commands/IntakeOut.h"
+#include "commands/ArmUp.h"
+#include "commands/ArmDown.h"
 
 RobotContainer::RobotContainer() {
     // Initialize all of your commands and subsystems here
@@ -97,6 +99,12 @@ void RobotContainer::ConfigureButtonBindings() {
     );
     frc2::JoystickButton(&m_stick3,5).WhenHeld(
         IntakeOut(m_intake)
+    );
+    frc2::JoystickButton(&m_stick3,6).WhenHeld(
+        ArmUp(m_arm)
+    );
+    frc2::JoystickButton(&m_stick3,4).WhenHeld(
+        ArmDown(m_arm)
     );
 
 }
