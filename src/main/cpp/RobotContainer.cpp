@@ -14,6 +14,7 @@
 #include "commands/IntakeOut.h"
 #include "commands/ArmUp.h"
 #include "commands/ArmDown.h"
+#include "commands/ArmDrive.h"
 
 RobotContainer::RobotContainer() {
     // Initialize all of your commands and subsystems here
@@ -82,6 +83,17 @@ RobotContainer::RobotContainer() {
         )
     );
 
+    m_arm.SetDefaultCommand(
+        ArmDrive(
+            [this] {
+                return (
+                    m_stick3.GetY() / 5
+                );
+            },
+            m_arm
+        )
+    );
+
     // Configure the button bindings
     ConfigureButtonBindings();
 
@@ -94,10 +106,10 @@ RobotContainer::RobotContainer() {
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-    frc2::JoystickButton(&m_stick3,3).WhenHeld(
+    frc2::JoystickButton(&m_stick3,5).WhenHeld(
         IntakeIn(m_intake)
     );
-    frc2::JoystickButton(&m_stick3,5).WhenHeld(
+    frc2::JoystickButton(&m_stick3,3).WhenHeld(
         IntakeOut(m_intake)
     );
     frc2::JoystickButton(&m_stick3,6).WhenHeld(
