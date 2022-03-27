@@ -6,13 +6,20 @@
 
 #include <frc2/command/ParallelCommandGroup.h>
 
-#include "commands/DriveBack.h"
+#include "commands/AutoDriveForward.h"
+#include "commands/AutoDriveTaxi.h"
+#include "commands/AutoIntakeOut.h"
 
 Autonomous::Autonomous(
-        Drivetrain& drivetrain):
-            m_drivetrain(&drivetrain){
+        Drivetrain& drivetrain, Intake& intake):
+            m_drivetrain(&drivetrain),
+            m_intake(&intake){
 
     SetName("Autonomous");
-    AddCommands(DriveBack(drivetrain));
+    AddCommands(
+        //AutoDriveForward(drivetrain),
+        AutoIntakeOut(intake)
+        //AutoDriveTaxi(drivetrain)
+    );
   
 }

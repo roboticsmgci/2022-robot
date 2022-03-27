@@ -3,42 +3,42 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include "commands/DriveBack.h"
+#include "commands/AutoIntakeOut.h"
 
 #include <frc/controller/PIDController.h>
 
 #include "Robot.h"
 
-DriveBack::DriveBack(
-        Drivetrain& drivetrain):
-            m_drivetrain(&drivetrain) {
+AutoIntakeOut::AutoIntakeOut(
+        Intake& intake):
+            m_intake(&intake) {
     
     SetName("MoveBack");
-    AddRequirements({m_drivetrain});
+    AddRequirements({m_intake});
 }
 
 // Called just before this Command runs the first time
-void DriveBack::Initialize() {
+void AutoIntakeOut::Initialize() {
     duration_counter = 0;
     // Get everything in a safe starting state.
-    m_drivetrain->Drive(0, 0);
+    m_intake->Stop();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveBack::Execute() {
-    if (duration_counter < 150){
-        m_drivetrain->Drive(0.5, 0.5);
+void AutoIntakeOut::Execute() {
+    if (duration_counter < duration){
+        m_intake->Rotate(0.5);
         duration_counter++;
     }
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveBack::IsFinished() {
-    return false;
+bool AutoIntakeOut::IsFinished() {
+    return (duration_counter >= duration);;
 }
 
 // Called once after isFinished returns true
-void DriveBack::End(bool) {
-    m_drivetrain->Drive(0, 0);
+void AutoIntakeOut::End(bool) {
+    m_intake->Stop();
 }
 

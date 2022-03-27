@@ -8,6 +8,7 @@
 #include <frc2/command/SequentialCommandGroup.h>
 
 #include "subsystems/Drivetrain.h"
+#include "subsystems/Intake.h"
 
 /**
  * The main autonomous command to pickup and deliver the soda to the box.
@@ -17,10 +18,11 @@ class Autonomous: public frc2::CommandHelper<frc2::SequentialCommandGroup, Auton
     
     public:
 
-        Autonomous(Drivetrain& drivetrain);
+        Autonomous(Drivetrain& drivetrain, Intake& intake);
 
     private:
 
         Drivetrain* m_drivetrain;
+        Intake* m_intake;
 
 };
