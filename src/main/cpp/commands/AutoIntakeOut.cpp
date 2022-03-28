@@ -27,7 +27,7 @@ void AutoIntakeOut::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void AutoIntakeOut::Execute() {
     if (duration_counter < duration){
-        m_intake->Rotate(0.5);
+        m_intake->Rotate(1);
         duration_counter++;
     }
 }

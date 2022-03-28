@@ -18,8 +18,8 @@ Autonomous::Autonomous(
     SetName("Autonomous");
     AddCommands(
         //AutoDriveForward(drivetrain),
-        AutoIntakeOut(intake)
-        //AutoDriveTaxi(drivetrain)
+        AutoIntakeOut(intake),
+        AutoDriveTaxi(drivetrain)
     );
   
 }

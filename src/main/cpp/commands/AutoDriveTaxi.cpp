@@ -24,17 +24,18 @@ void AutoDriveTaxi::Initialize() {
     m_drivetrain->Drive(0, 0);
 }
 
+
 // Called repeatedly when this Command is scheduled to run
 void AutoDriveTaxi::Execute() {
     if (duration_counter < duration){
-        m_drivetrain->Drive(0.5, 0.5);
+        m_drivetrain->Drive(0.5, -0.5);
         duration_counter++;
     }
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutoDriveTaxi::IsFinished() {
-    return (duration >= duration);
+    return (duration_counter >= duration);
 }
 
 // Called once after isFinished returns true
