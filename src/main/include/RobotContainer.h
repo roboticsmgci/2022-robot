@@ -35,7 +35,7 @@ class RobotContainer {
         Intake m_intake;
         Arm m_arm;
 
-        Autonomous m_autonomousCommand{m_drivetrain};
+        Autonomous m_autonomousCommand{m_drivetrain, m_intake};
 
         double speed = 0;
 

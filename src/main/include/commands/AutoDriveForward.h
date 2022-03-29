@@ -15,11 +15,11 @@
  * enabled while this command is running. The input is the averaged
  * values of the left and right encoders.
  */
-class DriveBack: public frc2::CommandHelper<frc2::CommandBase, DriveBack> {
+class AutoDriveForward: public frc2::CommandHelper<frc2::CommandBase, AutoDriveForward> {
 
     public:
 
-        DriveBack(Drivetrain& drivetrain);
+        AutoDriveForward(Drivetrain& drivetrain);
         void Initialize() override;
         void Execute() override;
         bool IsFinished() override;
@@ -28,5 +28,6 @@ class DriveBack: public frc2::CommandHelper<frc2::CommandBase, DriveBack> {
     private:
 
         Drivetrain* m_drivetrain;
+        int duration = 40;
         int duration_counter;
 };
