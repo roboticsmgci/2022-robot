@@ -64,5 +64,5 @@ void Drivetrain::Periodic() {
 }
 
 void Drivetrain::Drive(double left, double right) {
-    m_robotDrive.TankDrive(left, right);
+    m_robotDrive.TankDrive(-left, right);
 }
