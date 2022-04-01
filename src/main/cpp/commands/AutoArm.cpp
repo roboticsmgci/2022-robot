@@ -30,19 +30,21 @@ void AutoArm::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoArm::Execute() {
-    if (m_direction == 1 && m_arm->m_armEncoder.GetPosition() < m_height){
+    double position = m_arm->m_armEncoder.GetPosition();
+    if (m_direction == 1 &&  position < m_height){
         m_arm->Rotate(0.3*m_direction);
-    } else if (m_direction == -1 && m_arm->m_armEncoder.GetPosition() > m_height){
+    } else if (m_direction == -1 && position > m_height){
         m_arm->Rotate(0.3*m_direction);
     }
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutoArm::IsFinished() {
+    double position = m_arm->m_armEncoder.GetPosition();
     if (m_direction == 1){
-        return (m_arm->m_armEncoder.GetPosition() >= m_height);
+        return (position >= m_height);
     } else if (m_direction == -1){
-        return (m_arm->m_armEncoder.GetPosition() <= m_height);;
+        return (position <= m_height);;
     }
 }
 

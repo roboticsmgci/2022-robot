@@ -20,7 +20,7 @@ AutoDriveTurn::AutoDriveTurn(Drivetrain& drivetrain, double angle):
 void AutoDriveTurn::Initialize() {
     m_drivetrain->m_leftLeadEncoder.SetPosition(0);
     m_drivetrain->m_rightLeadEncoder.SetPosition(0);
-    m_drivetrain->m_navX.SetAngleAdjustment(0);
+    m_drivetrain->m_navX.Reset();//SetAngleAdjustment(0);
     // Get everything in a safe starting state.
     //distanceCounter = 0;
     m_drivetrain->Drive(0, 0);
@@ -29,12 +29,27 @@ void AutoDriveTurn::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoDriveTurn::Execute() {
-    m_drivetrain->Drive(0, 0);
+    double angle = m_drivetrain->m_navX.GetAngle();
+    if (m_angle >= 0 && angle < m_angle){
+        m_drivetrain->Drive(0.3, 0.3);
+        //slowly back until the end of 'duration' autonomous period??
+    }
+    else if(m_angle < 0 && angle > m_angle){
+        m_drivetrain->Drive(-0.3, -0.3);
+    };
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutoDriveTurn::IsFinished() {
-    return (true);
+    double angle = m_drivetrain->m_navX.GetAngle();
+    if (m_angle >= 0){
+        return(angle >= m_angle);
+        //slowly back until the end of 'duration' autonomous period??
+    }
+    else if (m_angle < 0){
+        return(angle <= m_angle);
+        //slowly back until the end of 'duration' autonomous period??
+    }
 }
 
 // Called once after isFinished returns true
