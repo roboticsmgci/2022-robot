@@ -7,7 +7,7 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
-#include "subsystems/Intake.h"
+#include "subsystems/Drivetrain.h"
 
 /**
  * Drive the given distance straight (negative values go backwards).
@@ -15,11 +15,11 @@
  * enabled while this command is running. The input is the averaged
  * values of the left and right encoders.
  */
-class AutoIntakeOut: public frc2::CommandHelper<frc2::CommandBase, AutoIntakeOut> {
+class AutoDriveTurn: public frc2::CommandHelper<frc2::CommandBase, AutoDriveTurn> {
 
     public:
 
-        AutoIntakeOut(Intake& intake);
+        AutoDriveTurn(Drivetrain& drivetrain, double angle);
         void Initialize() override;
         void Execute() override;
         bool IsFinished() override;
@@ -27,7 +27,9 @@ class AutoIntakeOut: public frc2::CommandHelper<frc2::CommandBase, AutoIntakeOut
 
     private:
 
-        Intake* m_intake;
-        int duration = 25;
-        int duration_counter;
+        Drivetrain* m_drivetrain;
+        double m_angle;
+        //int duration = 150;
+        //int duration_counter;
 };
+

@@ -26,33 +26,41 @@ RobotContainer::RobotContainer() {
                 return (
                     (
                         // tank
+                        //tank is get y
                         (
+                         //Get y if neither button is pressed
                             m_stick2.GetY()
                                 * (int)!(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
+                         //Average of get y if either button is pressed (opposite of previous)
                             + (m_stick1.GetY() + m_stick2.GetY()) / 2
                                 * (int)(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
+                         //Use any of that if throttle is positive
                         ) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)
                         // tank
                         +
                         // arcade
+                        //arcade is
                         (m_stick2.GetY()
+                         //The more the z, the less the y
                             * (
                                 1 - std::abs(
+                                    //Get z if button is not pressed, else 0
                                     m_stick2.GetZ()
                                         * (int)!m_stick2.GetRawButton(1)
                                 )
                             )
+                         //Add 75% z if the button is not pressed
                         + m_stick2.GetZ()
-                            * 0.75
-                            * (int)!m_stick2.GetRawButton(1)
-                        
+                            * 0.75 * (int)!m_stick2.GetRawButton(1)
+                        //Use it if throttle is negative
                         ) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
                         // arcade
-                    ) * ((-m_stick2.GetThrottle() + 2) / 3)
+                    ) * ((-m_stick2.GetThrottle() + 2) / 3) //I think this is a constant
                 );
+                //End of first parameter
             },
             [this] {
-                return ( -
+                return ( - //Negative sign here, rest is same as the previous parameter expect for stick1
                     (
                         // tank
                         (
@@ -62,7 +70,7 @@ RobotContainer::RobotContainer() {
                                 * (int)(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
                         ) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)
                         // tank
-                        + 
+                        +
                         // arcade
                         (
                             m_stick2.GetY()
@@ -80,7 +88,7 @@ RobotContainer::RobotContainer() {
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
                 );
             },
-            m_drivetrain
+            m_drivetrain //Last parameter, drivetrain
         )
     );
 
@@ -88,7 +96,7 @@ RobotContainer::RobotContainer() {
         ArmDrive(
             [this] {
                 return (
-                    m_stick3.GetY() / 5
+                    m_stick3.GetY() / 5 //Turn the arm slowly
                 );
             },
             m_arm
@@ -107,6 +115,7 @@ RobotContainer::RobotContainer() {
 }
 
 void RobotContainer::ConfigureButtonBindings() {
+    //1st parameter is pointer to subsystem, second is which button
     frc2::JoystickButton(&m_stick3,5).WhenHeld(
         IntakeIn(m_intake)
     );
@@ -116,6 +125,8 @@ void RobotContainer::ConfigureButtonBindings() {
     frc2::JoystickButton(&m_stick3,1).WhenHeld(
         IntakeYeet(m_intake)
     );
+
+    //I think the  arm should have another way to fully lower and raise, using WhenPressed
     frc2::JoystickButton(&m_stick3,6).WhenHeld(
         ArmUp(m_arm)
     );

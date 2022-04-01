@@ -26,6 +26,10 @@ Drivetrain::Drivetrain() {
     // Configures the motors to follow each other
     m_leftFollowMotor.Follow(m_leftLeadMotor);
     m_rightFollowMotor.Follow(m_rightLeadMotor);
+
+    m_leftLeadEncoder.SetPositionConversionFactor(1);
+    m_rightLeadEncoder.SetPositionConversionFactor(1);
+
    
     SetName("Drivetrain");
   
@@ -56,6 +60,10 @@ this code and found the need to troubleshoot, I wish you best of luck.
 
 void Drivetrain::Log() {
     frc::SmartDashboard::PutNumber("Gyro", m_navX.GetYaw());
+    frc::SmartDashboard::PutNumber("Left Lead Position", m_leftLeadEncoder.GetPosition());
+    frc::SmartDashboard::PutNumber("Right Lead Position", m_rightLeadEncoder.GetPosition());
+    frc::SmartDashboard::PutNumber("Left Follow Position", m_leftFollowEncoder.GetPosition());
+    frc::SmartDashboard::PutNumber("Right Follow Position", m_rightFollowEncoder.GetPosition());
 }
 
 void Drivetrain::Periodic() {

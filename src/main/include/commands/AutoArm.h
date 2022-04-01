@@ -1,9 +1,13 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
 #pragma once
 
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
-#include "subsystems/Drivetrain.h"
+#include "subsystems/Arm.h"
 
 /**
  * Drive the given distance straight (negative values go backwards).
@@ -11,11 +15,11 @@
  * enabled while this command is running. The input is the averaged
  * values of the left and right encoders.
  */
-class AutoDriveTaxi: public frc2::CommandHelper<frc2::CommandBase, AutoDriveTaxi> {
+class AutoArm: public frc2::CommandHelper<frc2::CommandBase, AutoArm> {
 
     public:
 
-        AutoDriveTaxi(Drivetrain& drivetrain, double distance);
+        AutoArm(Arm& arm, double speed);
         void Initialize() override;
         void Execute() override;
         bool IsFinished() override;
@@ -23,9 +27,9 @@ class AutoDriveTaxi: public frc2::CommandHelper<frc2::CommandBase, AutoDriveTaxi
 
     private:
 
-        Drivetrain* m_drivetrain;
-        double m_distance;
-        double distanceCounter;
-        //int duration = 150;
-        //int duration_counter;
+        Arm* m_arm;
+        double m_height;
+        int m_direction;
+        int duration = 25;
+        int duration_counter;
 };

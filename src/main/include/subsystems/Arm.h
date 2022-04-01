@@ -8,6 +8,7 @@ class Arm : public frc2::SubsystemBase {
         Arm();
         void Rotate(double speed);
         void Stop();
+        rev::SparkMaxRelativeEncoder m_armEncoder = m_arm.GetEncoder();
 
     private:
         // TODO make sure wiring is correct.

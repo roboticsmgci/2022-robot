@@ -8,18 +8,20 @@
 
 #include "commands/AutoDriveForward.h"
 #include "commands/AutoDriveTaxi.h"
-#include "commands/AutoIntakeOut.h"
+//#include "commands/AutoIntake.h"
 
-Autonomous::Autonomous(
-        Drivetrain& drivetrain, Intake& intake):
+Autonomous::Autonomous(Drivetrain& drivetrain, Intake& intake):
             m_drivetrain(&drivetrain),
             m_intake(&intake){
 
     SetName("Autonomous");
     AddCommands(
         //AutoDriveForward(drivetrain),
-        AutoIntakeOut(intake),
-        AutoDriveTaxi(drivetrain)
+        //AutoIntake(intake, 1),
+        AutoDriveTaxi(drivetrain, 5)//,
+        //AutoIntake(intake, -1),
+        //AutoIntake(intake, 1),
+        //AutoDriveTaxi(drivetrain, 100)
     );
-  
+
 }
