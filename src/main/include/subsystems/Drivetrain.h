@@ -30,11 +30,6 @@ class Drivetrain: public frc2::SubsystemBase {
         void Log();
         void Periodic() override;
 
-        rev::SparkMaxRelativeEncoder m_leftLeadEncoder = m_leftLeadMotor.GetEncoder();
-        rev::SparkMaxRelativeEncoder m_rightLeadEncoder = m_rightLeadMotor.GetEncoder();
-        rev::SparkMaxRelativeEncoder m_leftFollowEncoder = m_leftFollowMotor.GetEncoder();
-        rev::SparkMaxRelativeEncoder m_rightFollowEncoder = m_rightFollowMotor.GetEncoder();
-
         // Gyro
         AHRS m_navX{frc::SPI::Port::kMXP};
 
@@ -49,5 +44,10 @@ class Drivetrain: public frc2::SubsystemBase {
         frc::DifferentialDrive m_robotDrive{m_leftLeadMotor, m_rightLeadMotor};
 
         //frc2::PIDController turnController{0.03, 0, 0};      // PID Controller
+    public:
+        rev::SparkMaxRelativeEncoder m_leftLeadEncoder = m_leftLeadMotor.GetEncoder();
+        rev::SparkMaxRelativeEncoder m_rightLeadEncoder = m_rightLeadMotor.GetEncoder();
+        rev::SparkMaxRelativeEncoder m_leftFollowEncoder = m_leftFollowMotor.GetEncoder();
+        rev::SparkMaxRelativeEncoder m_rightFollowEncoder = m_rightFollowMotor.GetEncoder();
 
 };
