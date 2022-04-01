@@ -46,7 +46,7 @@ bool AutoDriveTurn::IsFinished() {
         return(angle >= m_angle);
         //slowly back until the end of 'duration' autonomous period??
     }
-    else if (m_angle < 0){
+    else{
         return(angle <= m_angle);
         //slowly back until the end of 'duration' autonomous period??
     }

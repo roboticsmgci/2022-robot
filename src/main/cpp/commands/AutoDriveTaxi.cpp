@@ -34,7 +34,7 @@ void AutoDriveTaxi::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoDriveTaxi::Execute() {
-    distanceCounter = (m_drivetrain->m_leftLeadEncoder.GetPosition() + m_drivetrain->m_rightLeadEncoder.GetPosition())/2;
+    distanceCounter = (-m_drivetrain->m_leftLeadEncoder.GetPosition() + m_drivetrain->m_rightLeadEncoder.GetPosition())/2;
     if (m_distance >= 0 && distanceCounter < m_distance){
         m_drivetrain->Drive(-0.3, 0.3);
         //slowly back until the end of 'duration' autonomous period??
@@ -46,12 +46,11 @@ void AutoDriveTaxi::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutoDriveTaxi::IsFinished() {
-    distanceCounter = (m_drivetrain->m_leftLeadEncoder.GetPosition() + m_drivetrain->m_rightLeadEncoder.GetPosition())/2;
+    distanceCounter = (-m_drivetrain->m_leftLeadEncoder.GetPosition() + m_drivetrain->m_rightLeadEncoder.GetPosition())/2;
     if (m_distance >= 0){
         return(distanceCounter >= m_distance);
-        //slowly back until the end of 'duration' autonomous period??
     }
-    else if (m_distance < 0){
+    else{
         return(distanceCounter <= m_distance);
         //slowly back until the end of 'duration' autonomous period??
     }
