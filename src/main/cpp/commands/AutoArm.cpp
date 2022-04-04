@@ -6,6 +6,7 @@
 #include "commands/AutoArm.h"
 
 #include <frc/controller/PIDController.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 
 #include "Robot.h"
 
@@ -36,6 +37,7 @@ void AutoArm::Execute() {
     } else if (m_direction == -1 && position > m_height){
         m_arm->Rotate(0.1*m_direction);
     }
+    frc::SmartDashboard::PutNumber("Arm", position);
 }
 
 // Make this return true when this Command no longer needs to run execute()

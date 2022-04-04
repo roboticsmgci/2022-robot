@@ -27,8 +27,8 @@ Drivetrain::Drivetrain() {
     m_leftFollowMotor.Follow(m_leftLeadMotor);
     m_rightFollowMotor.Follow(m_rightLeadMotor);
 
-    m_leftLeadEncoder.SetPositionConversionFactor(1);
-    m_rightLeadEncoder.SetPositionConversionFactor(1);
+    m_leftLeadEncoder.SetPositionConversionFactor(0.0442);
+    m_rightLeadEncoder.SetPositionConversionFactor(0.0442);
 
    
     SetName("Drivetrain");
