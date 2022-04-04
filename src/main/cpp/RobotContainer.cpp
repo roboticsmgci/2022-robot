@@ -10,11 +10,6 @@
 #include <cmath>
 
 #include "commands/TankDrive.h"
-#include "commands/IntakeIn.h"
-#include "commands/IntakeOut.h"
-#include "commands/IntakeYeet.h"
-#include "commands/ArmUp.h"
-#include "commands/ArmDown.h"
 #include "commands/ArmDrive.h"
 
 RobotContainer::RobotContainer() {
@@ -107,7 +102,7 @@ RobotContainer::RobotContainer() {
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-    frc2::JoystickButton(&m_stick3,5).WhenHeld(
+    /*frc2::JoystickButton(&m_stick3,5).WhenHeld(
         IntakeIn(m_intake)
     );
     frc2::JoystickButton(&m_stick3,3).WhenHeld(
@@ -115,11 +110,11 @@ void RobotContainer::ConfigureButtonBindings() {
     );
     frc2::JoystickButton(&m_stick3,4).WhenHeld(
         IntakeYeet(m_intake)
-    );
+    );*/
 
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
     // An example command will be run in autonomous
-    return &m_autonomousCommand;
+    //return &m_autonomousCommand;
 }

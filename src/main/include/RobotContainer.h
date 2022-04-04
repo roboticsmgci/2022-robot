@@ -7,7 +7,7 @@
 #include <frc/Joystick.h>
 #include <frc2/command/Command.h>
 
-#include "commands/Autonomous.h"
+// #include "commands/Autonomous.h"
 
 #include "subsystems/Drivetrain.h"
 #include "subsystems/Intake.h"
@@ -35,7 +35,7 @@ class RobotContainer {
         Intake m_intake;
         Arm m_arm;
 
-        Autonomous m_autonomousCommand{m_drivetrain, m_intake};
+        // Autonomous m_autonomousCommand{m_drivetrain, m_intake};
 
         double speed = 0;
 
