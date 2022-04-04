@@ -113,14 +113,8 @@ void RobotContainer::ConfigureButtonBindings() {
     frc2::JoystickButton(&m_stick3,3).WhenHeld(
         IntakeOut(m_intake)
     );
-    frc2::JoystickButton(&m_stick3,1).WhenHeld(
-        IntakeYeet(m_intake)
-    );
-    frc2::JoystickButton(&m_stick3,6).WhenHeld(
-        ArmUp(m_arm)
-    );
     frc2::JoystickButton(&m_stick3,4).WhenHeld(
-        ArmDown(m_arm)
+        IntakeYeet(m_intake)
     );
 
 }
