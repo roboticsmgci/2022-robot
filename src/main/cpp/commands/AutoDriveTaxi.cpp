@@ -36,11 +36,11 @@ void AutoDriveTaxi::Initialize() {
 void AutoDriveTaxi::Execute() {
     distanceCounter = (-m_drivetrain->m_leftLeadEncoder.GetPosition() + m_drivetrain->m_rightLeadEncoder.GetPosition())/2;
     if (m_distance >= 0 && distanceCounter < m_distance){
-        m_drivetrain->Drive(-0.3, 0.3);
+        m_drivetrain->Drive(-0.4, 0.4);
         //slowly back until the end of 'duration' autonomous period??
     }
     else if(m_distance < 0 && distanceCounter > m_distance){
-        m_drivetrain->Drive(0.3, -0.3);
+        m_drivetrain->Drive(0.4, -0.4);
     }
 }
 

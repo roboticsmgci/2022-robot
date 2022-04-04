@@ -33,9 +33,9 @@ void AutoArm::Initialize() {
 void AutoArm::Execute() {
     double position = m_arm->m_armEncoder.GetPosition();
     if (m_direction == 1 &&  position < m_height){
-        m_arm->Rotate(0.1*m_direction);
+        m_arm->Rotate(m_speed*m_direction);
     } else if (m_direction == -1 && position > m_height){
-        m_arm->Rotate(0.1*m_direction);
+        m_arm->Rotate(m_speed*m_direction);
     }
     frc::SmartDashboard::PutNumber("Arm", position);
 }

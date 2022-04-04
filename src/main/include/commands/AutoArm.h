@@ -32,4 +32,5 @@ class AutoArm: public frc2::CommandHelper<frc2::CommandBase, AutoArm> {
         int m_direction;
         int duration = 25;
         int duration_counter;
+        double m_speed = 0.2;
 };

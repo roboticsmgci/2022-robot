@@ -9,6 +9,7 @@
 
 #include "commands/AutoDriveForward.h"
 #include "commands/AutoDriveTaxi.h"
+#include "commands/AutoDriveTurn.h"
 #include "commands/AutoIntake.h"
 #include "commands/AutoArm.h"
 
@@ -20,13 +21,18 @@ Autonomous::Autonomous(Drivetrain& drivetrain, Intake& intake, Arm& arm):
     SetName("Autonomous");
     AddCommands(
         //AutoDriveForward(drivetrain),
-        //AutoIntake(intake, 1),
+        AutoIntake(intake, -0.1),
+        AutoDriveTaxi(drivetrain, -1),
+        AutoDriveTurn(drivetrain, 90),
+        AutoDriveTurn(drivetrain, 90),       
         AutoDriveTaxi(drivetrain, 1),
-        //AutoIntake(intake, -1),
-        //AutoIntake(intake, 1),
-        //AutoDriveTaxi(drivetrain, 20),
+        AutoIntake(intake, 0.1),
         ///AutoArm(arm, -13),
-        AutoArm(arm, 17)
+        AutoArm(arm, 17),
+        AutoDriveTurn(drivetrain, -90),
+        AutoDriveTurn(drivetrain, -90),   
+        AutoDriveTaxi(drivetrain, 2),    
+        AutoIntake(intake, -0.1)
     );
 
 }
