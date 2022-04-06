@@ -11,6 +11,7 @@
 
 #include "commands/TankDrive.h"
 #include "commands/ArmDrive.h"
+#include "commands/IntakeDrive.h"
 
 RobotContainer::RobotContainer() {
 
@@ -109,15 +110,12 @@ RobotContainer::RobotContainer() {
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-    /*frc2::JoystickButton(&m_stick3,5).WhenHeld(
-        IntakeIn(m_intake)
-    );
-    frc2::JoystickButton(&m_stick3,3).WhenHeld(
-        IntakeOut(m_intake)
+    frc2::JoystickButton(&m_stick3,5).WhenHeld(
+        IntakeDrive(m_intake, 0.5)
     );
     frc2::JoystickButton(&m_stick3,4).WhenHeld(
-        IntakeYeet(m_intake)
-    );*/
+        IntakeDrive(m_intake, -1)
+    );
 
 }
 
