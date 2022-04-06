@@ -39,7 +39,12 @@ class Drivetrain: public frc2::SubsystemBase {
 
         frc::DifferentialDrive m_robotDrive{m_leftLeadMotor, m_rightLeadMotor};
 
-        // Gyro
+    public:
+    //I will later change these to private but for now this is a working version
+    // Gyro
         AHRS m_navX{frc::SPI::Port::kMXP};
+        rev::SparkMaxRelativeEncoder m_leftLeadEncoder = m_leftLeadMotor.GetEncoder();
+        rev::SparkMaxRelativeEncoder m_rightLeadEncoder = m_rightLeadMotor.GetEncoder();
+        //frc2::PIDController turnController{0.03, 0, 0};      // PID Controller
 
 };
