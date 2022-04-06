@@ -13,6 +13,13 @@
 #include "commands/ArmDrive.h"
 
 RobotContainer::RobotContainer() {
+
+    m_chooser.SetDefaultOption("Only Taxi", &m_only_taxi);
+    m_chooser.AddOption("2 Ball", &m_ball2);
+    m_chooser.AddOption("3 Ball", &m_ball3);
+
+    frc::SmartDashboard::PutData(&m_chooser);
+
     // Initialize all of your commands and subsystems here
     // ((-m_stick2.GetThrottle() + 2) / 3)
     m_drivetrain.SetDefaultCommand(
@@ -116,5 +123,5 @@ void RobotContainer::ConfigureButtonBindings() {
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
     // An example command will be run in autonomous
-    //return &m_autonomousCommand;
+    return m_chooser.GetSelected();
 }

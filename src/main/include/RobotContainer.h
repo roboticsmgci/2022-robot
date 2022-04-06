@@ -5,9 +5,13 @@
 #pragma once
 
 #include <frc/Joystick.h>
+#include "frc/smartdashboard/SendableChooser.h"
+#include "frc/smartdashboard/SendableChooserBase.h"
 #include <frc2/command/Command.h>
 
-// #include "commands/Autonomous.h"
+#include "commands/autonomous/Ball2.h"
+#include "commands/autonomous/Ball3.h"
+#include "commands/autonomous/OnlyTaxi.h"
 
 #include "subsystems/Drivetrain.h"
 #include "subsystems/Intake.h"
@@ -35,7 +39,11 @@ class RobotContainer {
         Intake m_intake;
         Arm m_arm;
 
-        // Autonomous m_autonomousCommand{m_drivetrain, m_intake};
+        Ball2 m_ball2{m_arm, m_drivetrain, m_intake};
+        Ball3 m_ball3{m_arm, m_drivetrain, m_intake};
+        OnlyTaxi m_only_taxi{m_drivetrain, m_intake};
+
+        frc::SendableChooser<frc2::Command*> m_chooser;
 
         double speed = 0;
 
