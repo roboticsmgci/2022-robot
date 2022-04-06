@@ -1,8 +1,8 @@
 #include "commands/autonomous/Ball2.h"
 
 #include "commands/ArmMove.h"
-// #include "commands/DriveMove.h"
-// #include "commands/DriveTurn.h"
+#include "commands/TankMove.h"
+#include "commands/TankTurn.h"
 #include "commands/IntakeMove.h"
 
 #include "commands/common/ArmLower.h"
@@ -23,17 +23,17 @@ Ball2::Ball2(
         // Remove ball
         IntakeMove(intake, 1, 0.2),
         // Taxi out
-        // TankMove(drivetrain, -2),
+        TankMove(drivetrain, -2),
         // Break tape
         ArmLower(arm),
         // Turn around to face the ball
-        // DriveTurn(drivetrain, 180),
+        TankTurn(drivetrain, 180),
         // Get the ball
         GrabBall(drivetrain, intake),
         // Turn back around to face hub
-        // DriveTurn(drivetrain, 180),
+        TankTurn(drivetrain, 180),
         // Move towards hub
-        // TankMove(drivetrain, 3),
+        TankMove(drivetrain, 3),
         // Score ball
         ScoreBall(arm, drivetrain, intake)
     );

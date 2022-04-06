@@ -5,7 +5,7 @@
 
 #include "commands/ArmMove.h"
 #include "commands/IntakeMove.h"
-// #include "commands/TankMove.h"
+#include "commands/TankMove.h"
 
 #include "commands/common/ArmLower.h"
 
@@ -24,14 +24,14 @@ ScoreBall::ScoreBall(
         ArmMove(arm, 0.2, 3),
         // Move forward while keeping arm up
         frc2::ParallelRaceGroup(
-            // TankMove(drivetrain, 0.3),
+            TankMove(drivetrain, 0.3),
             ArmMove(arm, 0.1, 5)),
         // Dump ball while keeping arm up
         frc2::ParallelCommandGroup(
             IntakeMove(intake, 1, 0.2),
             ArmMove(arm, 0.1, 5)),
         // Move back
-        // TankMove(drivetrain, -0.3)
+        TankMove(drivetrain, -0.3),
         ArmLower(arm)
     );
 
