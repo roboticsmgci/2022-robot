@@ -23,10 +23,10 @@ void TankTurn::Initialize() {
 void TankTurn::Execute() {
     double angle = m_drivetrain->m_navX.GetAngle();
     if (m_angle >= 0 && angle < m_angle){
-        m_drivetrain->Drive(0.3, 0.3);
+        m_drivetrain->Drive(0.3, -0.3);
     }
     else if(m_angle < 0 && angle > m_angle){
-        m_drivetrain->Drive(-0.3, -0.3);
+        m_drivetrain->Drive(-0.3, 0.3);
     };
 }
 
