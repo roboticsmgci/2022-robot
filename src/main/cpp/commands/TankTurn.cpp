@@ -5,8 +5,8 @@
 #include "commands/TankTurn.h"
 
 TankTurn::TankTurn(Drivetrain& drivetrain, double angle):
-    m_angle(angle),
-    m_drivetrain(&drivetrain) {
+    m_drivetrain(&drivetrain),
+    m_angle(angle) {
 
     SetName("TankTurn");
     AddRequirements({m_drivetrain});

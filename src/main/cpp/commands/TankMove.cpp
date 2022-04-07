@@ -8,8 +8,8 @@
 
 
 TankMove::TankMove(Drivetrain& drivetrain, double distance):
-    m_distance(distance),
-    m_drivetrain(&drivetrain) {
+    m_drivetrain(&drivetrain),
+    m_distance(distance){
 
     SetName("TankMove");
     AddRequirements({m_drivetrain});
