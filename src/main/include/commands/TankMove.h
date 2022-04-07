@@ -11,11 +11,11 @@
  * enabled while this command is running. The input is the averaged
  * values of the left and right encoders.
  */
-class AutoDriveTaxi: public frc2::CommandHelper<frc2::CommandBase, AutoDriveTaxi> {
+class TankMove: public frc2::CommandHelper<frc2::CommandBase, TankMove> {
 
     public:
 
-        AutoDriveTaxi(Drivetrain& drivetrain);
+        TankMove(Drivetrain& drivetrain, double distance);
         void Initialize() override;
         void Execute() override;
         bool IsFinished() override;
@@ -24,6 +24,6 @@ class AutoDriveTaxi: public frc2::CommandHelper<frc2::CommandBase, AutoDriveTaxi
     private:
 
         Drivetrain* m_drivetrain;
-        int duration = 150;
-        int duration_counter;
+        double m_distance;
+        double distanceCounter;
 };

@@ -5,14 +5,14 @@
 
 #include "subsystems/Intake.h"
 
-class IntakeIn : public frc2::CommandHelper<frc2::CommandBase, IntakeIn> {
+class IntakeDrive : public frc2::CommandHelper<frc2::CommandBase, IntakeDrive> {
     public:
-        explicit IntakeIn(Intake& intake);
+        IntakeDrive(Intake& intake, double speed);
         void Initialize() override;
         void Execute() override;
         void End(bool interrupted) override;
     
     private:
         Intake* m_intake;
-        double speed = 0.4;
+        double m_speed;
 };

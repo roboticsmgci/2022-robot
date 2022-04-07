@@ -15,11 +15,11 @@
  * enabled while this command is running. The input is the averaged
  * values of the left and right encoders.
  */
-class AutoDriveForward: public frc2::CommandHelper<frc2::CommandBase, AutoDriveForward> {
+class TankTurn: public frc2::CommandHelper<frc2::CommandBase, TankTurn> {
 
     public:
 
-        AutoDriveForward(Drivetrain& drivetrain);
+        TankTurn(Drivetrain& drivetrain, double angle);
         void Initialize() override;
         void Execute() override;
         bool IsFinished() override;
@@ -28,6 +28,8 @@ class AutoDriveForward: public frc2::CommandHelper<frc2::CommandBase, AutoDriveF
     private:
 
         Drivetrain* m_drivetrain;
-        int duration = 40;
-        int duration_counter;
+        double m_angle;
+        //int duration = 150;
+        //int duration_counter;
 };
+

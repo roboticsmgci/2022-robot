@@ -7,15 +7,15 @@
 #include <frc/Joystick.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
-#include "rev/CANSparkMax.h"
-
-#include "frc/SPI.h"
-
 Drivetrain::Drivetrain() {
 
     // Configures the motors to follow each other
     m_leftFollowMotor.Follow(m_leftLeadMotor);
     m_rightFollowMotor.Follow(m_rightLeadMotor);
+
+    //Conversion factor from rotations to meters
+    m_leftLeadEncoder.SetPositionConversionFactor(0.0442);
+    m_rightLeadEncoder.SetPositionConversionFactor(0.0442);
    
     SetName("Drivetrain");
   
