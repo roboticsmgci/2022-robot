@@ -25,7 +25,7 @@ Ball2::Ball2(
         // Taxi out
         TankMove(drivetrain, -2),
         // Break tape
-        ArmLower(arm),
+        //ArmLower(arm),
         // Turn around to face the ball
         TankTurn(drivetrain, 180),
         // Get the ball
