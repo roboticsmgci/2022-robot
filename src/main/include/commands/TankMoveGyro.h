@@ -11,11 +11,11 @@
  * enabled while this command is running. The input is the averaged
  * values of the left and right encoders.
  */
-class TankMove: public frc2::CommandHelper<frc2::CommandBase, TankMove> {
+class TankMoveGyro: public frc2::CommandHelper<frc2::CommandBase, TankMoveGyro> {
 
     public:
 
-        TankMove(Drivetrain& drivetrain, double distance, double speed);
+        TankMoveGyro(Drivetrain& drivetrain, double distance, double speed);
         void Initialize() override;
         void Execute() override;
         bool IsFinished() override;

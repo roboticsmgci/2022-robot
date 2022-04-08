@@ -14,7 +14,7 @@
 #include "commands/IntakeDrive.h"
 
 // Testing temp
-#include "commands/common/ScoreBall.h""
+#include "commands/TankMoveGyro.h"
 
 RobotContainer::RobotContainer() {
 
@@ -163,14 +163,14 @@ PPPGGGGGBGJ!Y#######BG5P###BGYGBGP555YJ7777!!J????7!?Y5GBBB&&&G5###BPG#####B?.~J
 }
 
 void RobotContainer::ConfigureButtonBindings() {
-    frc2::JoystickButton(&m_stick3,5).WhenHeld(
+    frc2::JoystickButton(&m_stick3,3).WhenHeld(
         IntakeDrive(m_intake, 0.5)
     );
     frc2::JoystickButton(&m_stick3,4).WhenHeld(
         IntakeDrive(m_intake, -1)
     );
     frc2::JoystickButton(&m_stick3, 1).WhenPressed(
-        ScoreBall(m_arm, m_drivetrain, m_intake)
+        TankMoveGyro(m_drivetrain, 4, 0.25)
     );
 
 }

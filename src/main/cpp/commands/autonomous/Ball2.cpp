@@ -2,8 +2,11 @@
 
 #include "commands/ArmMove.h"
 #include "commands/TankMove.h"
+#include "commands/TankMoveGyro.h"
 #include "commands/TankTurn.h"
 #include "commands/IntakeMove.h"
+
+#include "commands/TankStop.h"
 
 #include "commands/common/ArmLower.h"
 #include "commands/common/GrabBall.h"
@@ -21,19 +24,21 @@ Ball2::Ball2(
     SetName("Ball2");
     AddCommands(
         // Remove ball
-        IntakeMove(intake, 1, 0.2),
+        IntakeMove(intake, -1, 0.3),
         // Taxi out
-        TankMove(drivetrain, -2),
+        TankMoveGyro(drivetrain, -1.3, 0.6),
         // Break tape
         //ArmLower(arm),
         // Turn around to face the ball
-        TankTurn(drivetrain, 180),
+        TankTurn(drivetrain, 165),
         // Get the ball
         GrabBall(drivetrain, intake),
         // Turn back around to face hub
-        TankTurn(drivetrain, 180),
+        TankTurn(drivetrain, -165),
+        TankStop(drivetrain, 0.2),
         // Move towards hub
-        TankMove(drivetrain, 3),
+        TankMoveGyro(drivetrain, 1.3, 0.6),
+        TankMoveGyro(drivetrain, 0.5, 0.4),
         // Score ball
         ScoreBall(arm, drivetrain, intake)
     );
