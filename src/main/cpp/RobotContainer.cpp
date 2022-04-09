@@ -13,9 +13,6 @@
 #include "commands/ArmDrive.h"
 #include "commands/IntakeDrive.h"
 
-// Testing temp
-#include "commands/TankMoveGyro.h"
-
 RobotContainer::RobotContainer() {
 
     m_chooser.SetDefaultOption("Only Taxi", &m_only_taxi);
@@ -168,9 +165,6 @@ void RobotContainer::ConfigureButtonBindings() {
     );
     frc2::JoystickButton(&m_stick3,4).WhenHeld(
         IntakeDrive(m_intake, -1)
-    );
-    frc2::JoystickButton(&m_stick3, 1).WhenPressed(
-        TankMoveGyro(m_drivetrain, 4, 0.25)
     );
 
 }

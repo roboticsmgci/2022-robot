@@ -7,6 +7,7 @@
 #include "commands/IntakeMove.h"
 
 #include "commands/TankStop.h"
+#include "commands/TankRawMove.h"
 
 #include "commands/common/ArmLower.h"
 #include "commands/common/GrabBall.h"
