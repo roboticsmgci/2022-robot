@@ -7,9 +7,11 @@
 #include <frc/drive/DifferentialDrive.h>
 #include "rev/CANSparkMax.h"
 #include <frc2/command/SubsystemBase.h>
+#include <frc/controller/PIDController.h>
 
 #include "AHRS.h"
 #include "frc/SPI.h"
+
 
 namespace frc {
     class Joystick;
@@ -45,6 +47,6 @@ class Drivetrain: public frc2::SubsystemBase {
         AHRS m_navX{frc::SPI::Port::kMXP};
         rev::SparkMaxRelativeEncoder m_leftLeadEncoder = m_leftLeadMotor.GetEncoder();
         rev::SparkMaxRelativeEncoder m_rightLeadEncoder = m_rightLeadMotor.GetEncoder();
-        //frc2::PIDController turnController{0.03, 0, 0};      // PID Controller
+        frc2::PIDController m_pid{0.005, 0, 0};      // PID Controller
 
 };

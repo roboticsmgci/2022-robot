@@ -21,29 +21,29 @@ Ball3::Ball3(
     SetName("Ball3");
     AddCommands(
         // Remove ball
-        IntakeMove(intake, 1, 0.2),
+        IntakeMove(intake, -1, 0.2),
         // Taxi out
-        TankMove(drivetrain, -0.5),
+        TankMove(drivetrain, -0.5, 0.4),
         // Break tape
         //ArmLower(arm),
         // Turn to face ball 1
-        TankTurn(drivetrain, -133),
+        TankTurn(drivetrain, -120),
         // Move to ball 1
-        TankMove(drivetrain, 2),
+        TankMove(drivetrain, 1.10, 0.4),
         // Get ball 1
         GrabBall(drivetrain, intake),
         // Turn to face ball 2
-        TankTurn(drivetrain, -125),
+        TankTurn(drivetrain, -115),
         // Move to ball 2
-        TankMove(drivetrain, 2),
+        TankMove(drivetrain, 1.4, 0.4),
         // Get ball 2
         GrabBall(drivetrain, intake),
         // Turn to hub
-        TankTurn(drivetrain, -112),
+        TankTurn(drivetrain, -100),
         // Move to hub
-        TankMove(drivetrain, 3),
+        TankMove(drivetrain, 2, 0.4),
         // Realign perpendicular to hub
-        TankTurn(drivetrain, -10),
+        //TankTurn(drivetrain, -10),
         // Score ball
         ScoreBall(arm, drivetrain, intake)
     );
