@@ -15,7 +15,4 @@ class Arm : public frc2::SubsystemBase {
 
         double invert = 1; // change to -1 to invert motor direction
 
-    public:
-        rev::SparkMaxRelativeEncoder m_armEncoder = m_arm.GetEncoder();
-
 };

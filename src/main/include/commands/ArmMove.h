@@ -5,16 +5,25 @@
 
 #include "subsystems/Arm.h"
 
-class ArmUp: public frc2::CommandHelper<frc2::CommandBase, ArmUp> {
 
+class ArmMove: public frc2::CommandHelper<frc2::CommandBase, ArmMove> {
+    
     public:
-        explicit ArmUp(Arm& arm);
+
+        ArmMove(Arm& arm, double speed, double duration);
+
         void Initialize() override;
         void Execute() override;
+        bool IsFinished() override;
         void End(bool interrupted) override;
 
     private:
+
         Arm* m_arm;
-        const double speed = 0.3;
+        double m_speed;
+        double m_duration;
+
+        int period_target;
+        int periods;
 
 };

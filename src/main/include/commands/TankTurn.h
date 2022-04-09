@@ -7,7 +7,7 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
-#include "subsystems/Arm.h"
+#include "subsystems/Drivetrain.h"
 
 /**
  * Drive the given distance straight (negative values go backwards).
@@ -15,11 +15,11 @@
  * enabled while this command is running. The input is the averaged
  * values of the left and right encoders.
  */
-class AutoArm: public frc2::CommandHelper<frc2::CommandBase, AutoArm> {
+class TankTurn: public frc2::CommandHelper<frc2::CommandBase, TankTurn> {
 
     public:
 
-        AutoArm(Arm& arm, double speed);
+        TankTurn(Drivetrain& drivetrain, double angle);
         void Initialize() override;
         void Execute() override;
         bool IsFinished() override;
@@ -27,10 +27,9 @@ class AutoArm: public frc2::CommandHelper<frc2::CommandBase, AutoArm> {
 
     private:
 
-        Arm* m_arm;
-        double m_height;
-        int m_direction;
-        int duration = 25;
-        int duration_counter;
-        double m_speed = 0.2;
+        Drivetrain* m_drivetrain;
+        double m_angle;
+        //int duration = 150;
+        //int duration_counter;
 };
+

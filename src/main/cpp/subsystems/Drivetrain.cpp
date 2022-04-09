@@ -7,29 +7,15 @@
 #include <frc/Joystick.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
-#include "rev/CANSparkMax.h"
-
-#include "frc/SPI.h"
-
 Drivetrain::Drivetrain() {
-
-    // Restores factory defaults, does not persist
-    // m_leftLeadMotor.RestoreFactoryDefaults();
-    // m_rightLeadMotor.RestoreFactoryDefaults();
-    // m_leftFollowMotor.RestoreFactoryDefaults();
-    // m_rightFollowMotor.RestoreFactoryDefaults();
-
-    // Inverts one side of the drivetrain
-    // m_leftLeadMotor.SetInverted(true);
-    // m_rightLeadMotor.SetInverted(true);
 
     // Configures the motors to follow each other
     m_leftFollowMotor.Follow(m_leftLeadMotor);
     m_rightFollowMotor.Follow(m_rightLeadMotor);
 
+    //Conversion factor from rotations to meters
     m_leftLeadEncoder.SetPositionConversionFactor(0.0442);
     m_rightLeadEncoder.SetPositionConversionFactor(0.0442);
-
    
     SetName("Drivetrain");
   
@@ -60,10 +46,6 @@ this code and found the need to troubleshoot, I wish you best of luck.
 
 void Drivetrain::Log() {
     frc::SmartDashboard::PutNumber("Gyro", m_navX.GetYaw());
-    frc::SmartDashboard::PutNumber("Left Lead Position", m_leftLeadEncoder.GetPosition());
-    frc::SmartDashboard::PutNumber("Right Lead Position", m_rightLeadEncoder.GetPosition());
-    frc::SmartDashboard::PutNumber("Left Follow Position", m_leftFollowEncoder.GetPosition());
-    frc::SmartDashboard::PutNumber("Right Follow Position", m_rightFollowEncoder.GetPosition());
 }
 
 void Drivetrain::Periodic() {
@@ -72,5 +54,5 @@ void Drivetrain::Periodic() {
 }
 
 void Drivetrain::Drive(double left, double right) {
-    m_robotDrive.TankDrive(left, right);
+    m_robotDrive.TankDrive(-left, right);
 }

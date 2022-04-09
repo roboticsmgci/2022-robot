@@ -1,7 +1,3 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #pragma once
 
 #include <frc2/command/CommandBase.h>
@@ -15,11 +11,11 @@
  * enabled while this command is running. The input is the averaged
  * values of the left and right encoders.
  */
-class AutoDriveTurn: public frc2::CommandHelper<frc2::CommandBase, AutoDriveTurn> {
+class TankMoveGyro: public frc2::CommandHelper<frc2::CommandBase, TankMoveGyro> {
 
     public:
 
-        AutoDriveTurn(Drivetrain& drivetrain, double angle);
+        TankMoveGyro(Drivetrain& drivetrain, double distance, double speed);
         void Initialize() override;
         void Execute() override;
         bool IsFinished() override;
@@ -28,8 +24,7 @@ class AutoDriveTurn: public frc2::CommandHelper<frc2::CommandBase, AutoDriveTurn
     private:
 
         Drivetrain* m_drivetrain;
-        double m_angle;
-        //int duration = 150;
-        //int duration_counter;
+        double m_distance;
+        double m_speed;
+        double distanceCounter;
 };
-
