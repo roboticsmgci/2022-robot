@@ -21,12 +21,12 @@ ScoreBall::ScoreBall(
 
     SetName("ScoreBall");
     AddCommands(
-        TankStop(drivetrain, 0.2),
+        TankStop(drivetrain, 0.1),
         // Raise arm
         ArmMove(arm, 0.4, 1.5),
         // Move forward while keeping arm up
         frc2::ParallelRaceGroup(
-            TankMove(drivetrain, 0.2, 0.4),
+            TankMove(drivetrain, 0.3, 0.4),
             ArmMove(arm, 0.1, 5)),
         // Dump ball while keeping arm up
         frc2::ParallelCommandGroup(
