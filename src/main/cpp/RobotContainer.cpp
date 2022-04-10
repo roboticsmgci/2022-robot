@@ -12,9 +12,12 @@
 #include "commands/TankDrive.h"
 #include "commands/ArmDrive.h"
 #include "commands/IntakeDrive.h"
+<<<<<<< HEAD
 
 // Testing temp
 #include "commands/TankMoveGyro.h"
+=======
+>>>>>>> e07964651156f77bd528c6629344e66bdcff07d2
 
 RobotContainer::RobotContainer() {
 
@@ -168,9 +171,12 @@ void RobotContainer::ConfigureButtonBindings() {
     );
     frc2::JoystickButton(&m_stick3,4).WhenHeld(
         IntakeDrive(m_intake, -1)
+<<<<<<< HEAD
     );
     frc2::JoystickButton(&m_stick3, 1).WhenPressed(
         TankMoveGyro(m_drivetrain, 4, 0.25)
+=======
+>>>>>>> e07964651156f77bd528c6629344e66bdcff07d2
     );
 
 }
