@@ -170,7 +170,7 @@ void RobotContainer::ConfigureButtonBindings() {
         IntakeDrive(m_intake, -1)
     );
 
-    /*/ Tank Turn Tuning
+    // Tank Turn Tuning
     frc2::JoystickButton(&m_stick2, 5).WhenPressed(
         TankTurn(m_drivetrain, -45)
     );
@@ -189,7 +189,6 @@ void RobotContainer::ConfigureButtonBindings() {
     frc2::JoystickButton(&m_stick3, 6).WhenPressed(
         TankTurn(m_drivetrain, 180)
     );
-    /*/
 
 }
 

@@ -20,7 +20,7 @@ class TankTurn: public frc2::CommandHelper<frc2::CommandBase, TankTurn> {
         Drivetrain* m_drivetrain;
         double m_angle_target;
 
-        const double m_turn_error = 15;
+        const double m_turn_error = 12;
         const double m_turn_speed = 0.4;
 
         double m_angle_current;

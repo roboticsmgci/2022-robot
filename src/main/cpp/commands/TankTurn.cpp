@@ -33,6 +33,7 @@ void TankTurn::Execute() {
     if (m_angle_current < 0){
         m_angle_current = m_angle_current * -1;
     }
+    m_angle_current++;
 
     // Turns CCW
     if (m_turn_clockwise){
