@@ -31,21 +31,13 @@ Ball3::Ball3(
         // Move to ball 1
         TankMove(drivetrain, 1.10, 0.4),
         // Get ball 1
-<<<<<<< HEAD
-        GrabBall(drivetrain, intake),
-=======
         GrabBall(arm, drivetrain, intake),
->>>>>>> e07964651156f77bd528c6629344e66bdcff07d2
         // Turn to face ball 2
         TankTurn(drivetrain, -115),
         // Move to ball 2
         TankMove(drivetrain, 1.4, 0.4),
         // Get ball 2
-<<<<<<< HEAD
-        GrabBall(drivetrain, intake),
-=======
         GrabBall(arm, drivetrain, intake),
->>>>>>> e07964651156f77bd528c6629344e66bdcff07d2
         // Turn to hub
         TankTurn(drivetrain, -100),
         // Move to hub

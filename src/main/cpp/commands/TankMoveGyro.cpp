@@ -3,11 +3,6 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-/*
-test 1: moved about 0.2 speed 212 cm 5 rotations -> 42cm per rotation
-conversion factor around 2.3
-*/
-
 #include "commands/TankMoveGyro.h"
 
 
@@ -27,13 +22,15 @@ void TankMoveGyro::Initialize() {
     m_drivetrain->m_navX.Reset();
     distanceCounter = 0;
     m_drivetrain->Drive(0, 0);
+    //m_drivetrain->m_pid.Reset();
+    m_drivetrain->m_movePid.SetSetpoint(0);
 }
 
 
 // Called repeatedly when this Command is scheduled to run
 void TankMoveGyro::Execute() {
     distanceCounter = (-m_drivetrain->m_leftLeadEncoder.GetPosition() + m_drivetrain->m_rightLeadEncoder.GetPosition())/2;
-    double correction = m_drivetrain->m_pid.Calculate(m_drivetrain->m_navX.GetAngle());
+    double correction = m_drivetrain->m_movePid.Calculate(m_drivetrain->m_navX.GetAngle());
     if (m_distance >= 0 && distanceCounter < m_distance){
         m_drivetrain->Drive(m_speed-correction, m_speed+correction);
     }
