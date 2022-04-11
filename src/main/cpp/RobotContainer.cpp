@@ -13,6 +13,9 @@
 #include "commands/ArmDrive.h"
 #include "commands/IntakeDrive.h"
 
+// Testing
+#include "commands/TankTurn.h"
+
 RobotContainer::RobotContainer() {
 
     m_chooser.SetDefaultOption("Only Taxi", &m_only_taxi);
@@ -165,6 +168,26 @@ void RobotContainer::ConfigureButtonBindings() {
     );
     frc2::JoystickButton(&m_stick3,4).WhenHeld(
         IntakeDrive(m_intake, -1)
+    );
+
+    // Tank Turn Tuning
+    frc2::JoystickButton(&m_stick2, 5).WhenPressed(
+        TankTurn(m_drivetrain, -45)
+    );
+    frc2::JoystickButton(&m_stick2, 3).WhenPressed(
+        TankTurn(m_drivetrain, -135)
+    );
+    frc2::JoystickButton(&m_stick2, 6).WhenPressed(
+        TankTurn(m_drivetrain, 45)
+    );
+    frc2::JoystickButton(&m_stick2, 4).WhenPressed(
+        TankTurn(m_drivetrain, 135)
+    );
+    frc2::JoystickButton(&m_stick3, 5).WhenPressed(
+        TankTurn(m_drivetrain, -180)
+    );
+    frc2::JoystickButton(&m_stick3, 6).WhenPressed(
+        TankTurn(m_drivetrain, 180)
     );
 
 }
