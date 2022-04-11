@@ -1,49 +1,54 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #include "commands/TankTurn.h"
 
-TankTurn::TankTurn(Drivetrain& drivetrain, double angle):
-    m_drivetrain(&drivetrain),
-    m_angle(angle) {
+TankTurn::TankTurn(
+        Drivetrain& drivetrain, 
+        double angle_target):
+            m_drivetrain(&drivetrain),
+            m_angle_target(angle_target){
 
     SetName("TankTurn");
     AddRequirements({m_drivetrain});
+
 }
 
-// Called just before this Command runs the first time
+
 void TankTurn::Initialize() {
-    m_drivetrain->m_navX.Reset();//SetAngleAdjustment(0);
+
+    m_drivetrain->m_navX.Reset();
     m_drivetrain->Drive(0, 0);
+
+    // If negative (CCW), turn positive and note CCW
+    if (m_angle_target < 0){
+        m_angle_target = m_angle_target * -1;
+        m_turn_clockwise = false;
+    }
+
 }
 
 
-// Called repeatedly when this Command is scheduled to run
 void TankTurn::Execute() {
-    double angle = m_drivetrain->m_navX.GetAngle();
-    if (m_angle >= 0 && angle < m_angle){
-        m_drivetrain->Drive(-0.5, 0.5);
+
+    m_angle_current = m_drivetrain->m_navX.GetYaw();
+    // If negative (CCW), absolute value
+    if (m_angle_current < 0){
+        m_angle_current = m_angle_current * -1;
     }
-    else if(m_angle < 0 && angle > m_angle){
-        m_drivetrain->Drive(0.5, -0.5);
-    };
+
+    // Turns CCW
+    if (m_turn_clockwise){
+        m_drivetrain->Drive(-m_turn_speed, m_turn_speed);
+    } else {
+        m_drivetrain->Drive(m_turn_speed, -m_turn_speed);
+    }
+
 }
 
-// Make this return true when this Command no longer needs to run execute()
+
 bool TankTurn::IsFinished() {
-    double angle = m_drivetrain->m_navX.GetAngle();
-    if (m_angle >= 0){
-        return(angle >= m_angle);
-    }
-    else{
-        return(angle <= m_angle);
-    }
+    return m_angle_current >= m_angle_target - m_turn_error;
 }
 
-// Called once after isFinished returns true
+
 void TankTurn::End(bool) {
     m_drivetrain->Drive(0, 0);
 }
-
-
