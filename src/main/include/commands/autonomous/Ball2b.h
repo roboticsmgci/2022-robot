@@ -8,11 +8,11 @@
 #include "subsystems/Intake.h"
 
 
-class Ball2: public frc2::CommandHelper<frc2::SequentialCommandGroup, Ball2> {
+class Ball2b: public frc2::CommandHelper<frc2::SequentialCommandGroup, Ball2b> {
     
     public:
 
-        Ball2(Arm& arm, Drivetrain& drivetrain, Intake& intake);
+        Ball2b(Arm& arm, Drivetrain& drivetrain, Intake& intake);
 
     private:
 

@@ -1,4 +1,4 @@
-#include "commands/autonomous/Ball2.h"
+#include "commands/autonomous/Ball2b.h"
 
 #include "commands/ArmMove.h"
 #include "commands/TankMove.h"
@@ -14,7 +14,7 @@
 #include "commands/common/ScoreBall.h"
 
 
-Ball2::Ball2(
+Ball2b::Ball2b(
         Arm& arm,
         Drivetrain& drivetrain,
         Intake& intake): 
@@ -22,23 +22,13 @@ Ball2::Ball2(
             m_drivetrain(&drivetrain),
             m_intake(&intake){
 
-    SetName("Ball2");
+    SetName("Ball2b");
     AddCommands(
-        // Remove ball
-        IntakeMove(intake, -1, 0.3),
-        // Taxi out
-        TankMoveGyro(drivetrain, -0.4, 0.6),
-        // Break tape
-        ArmLower(arm),
-        // Turn around to face the ball
-        TankTurn(drivetrain, 165),
-        // Get the ball
         GrabBall(arm, drivetrain, intake),
-        // Turn back around to face hub
-        TankTurn(drivetrain, -165),
-        TankStop(drivetrain, 0.2),
-        // Move towards hub
-        TankMoveGyro(drivetrain, 1.8, 0.6),
+        TankMoveGyro(drivetrain, -0.9, 0.5),
+        TankStop(drivetrain, 0.3),
+        TankTurn(drivetrain, 158),
+        TankMoveGyro(drivetrain, 0.25, 0.45),
         // Score ball
         ScoreBall(arm, drivetrain, intake)
     );

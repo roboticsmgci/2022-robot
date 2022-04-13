@@ -25,6 +25,7 @@ void TankMoveGyro::Initialize() {
     m_drivetrain->m_leftLeadEncoder.SetPosition(0);
     m_drivetrain->m_rightLeadEncoder.SetPosition(0);
     m_drivetrain->m_navX.Reset();
+    m_drivetrain->m_pid_move.SetSetpoint(0);
     distanceCounter = 0;
     m_drivetrain->Drive(0, 0);
 }
@@ -33,7 +34,7 @@ void TankMoveGyro::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void TankMoveGyro::Execute() {
     distanceCounter = (-m_drivetrain->m_leftLeadEncoder.GetPosition() + m_drivetrain->m_rightLeadEncoder.GetPosition())/2;
-    double correction = m_drivetrain->m_pid.Calculate(m_drivetrain->m_navX.GetAngle());
+    double correction = m_drivetrain->m_pid_move.Calculate(m_drivetrain->m_navX.GetAngle());
     if (m_distance >= 0 && distanceCounter < m_distance){
         m_drivetrain->Drive(m_speed-correction, m_speed+correction);
     }

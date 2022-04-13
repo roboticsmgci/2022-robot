@@ -16,7 +16,7 @@ TankTurnPID::TankTurnPID(Drivetrain& drivetrain, double angle):
 void TankTurnPID::Initialize() {
     m_drivetrain->m_navX.Reset();//SetAngleAdjustment(0);
     //m_drivetrain->m_turnPid.Reset();
-    m_drivetrain->m_turnPid.SetSetpoint(m_angle);
+    m_drivetrain->m_pid_turn.SetSetpoint(m_angle);
     m_drivetrain->Drive(0, 0);
 }
 
@@ -29,7 +29,7 @@ void TankTurnPID::Execute() {
     } else if(m_angle < 0 && angle > 90){
         angle -= 360;
     }
-    double correction = m_drivetrain->m_turnPid.Calculate(angle);
+    double correction = m_drivetrain->m_pid_turn.Calculate(angle);
     if(correction > 0.4){
         correction = 0.4;
     } else if(correction < -0.4){

@@ -47,6 +47,7 @@ class Drivetrain: public frc2::SubsystemBase {
         AHRS m_navX{frc::SPI::Port::kMXP};
         rev::SparkMaxRelativeEncoder m_leftLeadEncoder = m_leftLeadMotor.GetEncoder();
         rev::SparkMaxRelativeEncoder m_rightLeadEncoder = m_rightLeadMotor.GetEncoder();
-        frc2::PIDController m_pid{0.005, 0, 0};      // PID Controller
+        frc2::PIDController m_pid_move{0.005, 0, 0};      // PID Controller
+        frc2::PIDController m_pid_turn{0.005, 0, 0};
 
 };
