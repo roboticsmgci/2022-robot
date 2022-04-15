@@ -175,13 +175,6 @@ void RobotContainer::ConfigureButtonBindings() {
         IntakeDrive(m_intake, -1)
     );
 
-    frc2::JoystickButton(&m_stick2, 5).WhenPressed(
-        TankTurn(m_drivetrain, 180)
-    );
-    frc2::JoystickButton(&m_stick2, 3).WhenPressed(
-        TankTurn(m_drivetrain, -180)
-    );
-
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
