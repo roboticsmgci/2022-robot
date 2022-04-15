@@ -12,8 +12,8 @@ conversion factor around 2.3
 
 
 TankMoveGyro::TankMoveGyro(Drivetrain& drivetrain, double distance, double speed):
-    m_distance(distance),
     m_drivetrain(&drivetrain),
+    m_distance(distance),
     m_speed(speed) {
 
     SetName("TankMove");
