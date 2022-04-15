@@ -3,12 +3,10 @@
 #include <frc2/command/ParallelCommandGroup.h>
 #include <frc2/command/ParallelRaceGroup.h>
 
+#include "commands/common/ArmLower.h"
 #include "commands/ArmMove.h"
 #include "commands/IntakeMove.h"
 #include "commands/TankMove.h"
-#include "commands/TankStop.h"
-
-#include "commands/common/ArmLower.h"
 
 
 ScoreBall::ScoreBall(

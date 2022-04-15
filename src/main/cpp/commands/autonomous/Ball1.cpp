@@ -1,16 +1,16 @@
-#include "commands/autonomous/OnlyTaxi.h"
+#include "commands/autonomous/Ball1.h"
 
 #include "commands/TankMove.h"
 #include "commands/IntakeMove.h"
 
 
-OnlyTaxi::OnlyTaxi(
+Ball1::Ball1(
         Drivetrain& drivetrain,
         Intake& intake): 
             m_drivetrain(&drivetrain),
             m_intake(&intake){
 
-    SetName("OnlyTaxi");
+    SetName("Ball1");
     AddCommands(
         // Remove ball
         IntakeMove(intake, -1, 0.3),

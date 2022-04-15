@@ -8,7 +8,7 @@ Arm::Arm(){
 }
 
 void Arm::Rotate(double speed){
-    m_arm.Set(speed * invert);
+    m_arm.Set(speed);
 }
 
 void Arm::Stop(){

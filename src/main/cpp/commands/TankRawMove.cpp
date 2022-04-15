@@ -1,5 +1,6 @@
 #include "commands/TankRawMove.h"
 
+
 TankRawMove::TankRawMove(
         Drivetrain& drivetrain,
         double speedl,
@@ -18,7 +19,7 @@ TankRawMove::TankRawMove(
 void TankRawMove::Initialize(){
 
     periods = 0;
-    period_target = m_duration * 50;
+    periodTarget = m_duration * 50;
 
     m_drivetrain->Drive(0, 0);
 
@@ -33,7 +34,7 @@ void TankRawMove::Execute(){
 
 bool TankRawMove::IsFinished(){
 
-    return (periods >= period_target);
+    return (periods >= periodTarget);
 
 }
 

@@ -5,12 +5,7 @@
 
 #include "subsystems/Drivetrain.h"
 
-/**
- * Drive the given distance straight (negative values go backwards).
- * Uses a local PID controller to run a simple PID loop that is only
- * enabled while this command is running. The input is the averaged
- * values of the left and right encoders.
- */
+
 class TankMove: public frc2::CommandHelper<frc2::CommandBase, TankMove> {
 
     public:
@@ -26,5 +21,7 @@ class TankMove: public frc2::CommandHelper<frc2::CommandBase, TankMove> {
         Drivetrain* m_drivetrain;
         double m_distance;
         double m_speed;
-        double distanceCounter;
+        
+        double m_distanceCounter;
+    
 };

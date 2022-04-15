@@ -8,7 +8,7 @@ Intake::Intake(){
 }
 
 void Intake::Rotate(double speed){
-    m_motor.Set(speed * invert);
+    m_motor.Set(speed);
 }
 
 void Intake::Stop(){

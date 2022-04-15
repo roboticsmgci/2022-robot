@@ -22,10 +22,10 @@
 
 RobotContainer::RobotContainer() {
 
-    m_chooser.SetDefaultOption("Only Taxi", &m_only_taxi);
+    m_chooser.SetDefaultOption("1 Ball", &m_ball1);
     m_chooser.AddOption("2 Ball", &m_ball2);
-    m_chooser.AddOption("2 Ball b", &m_ball2b);
-    m_chooser.AddOption("3 Ball", &m_ball3);
+    // m_chooser.AddOption("2 Ball v2", &m_ball2b);
+    // m_chooser.AddOption("3 Ball", &m_ball3);
 
     frc::SmartDashboard::PutData(&m_chooser);
 
@@ -33,6 +33,7 @@ RobotContainer::RobotContainer() {
     // ((-m_stick2.GetThrottle() + 2) / 3)
     m_drivetrain.SetDefaultCommand(
         TankDrive(
+            m_drivetrain,
             [this] {
                 return ( - 
                     (
@@ -90,34 +91,24 @@ RobotContainer::RobotContainer() {
                         // arcade
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
                 );
-            },
-            m_drivetrain
+            }
         )
     );
 
-/* no u
-*/
-
     m_arm.SetDefaultCommand(
         ArmDrive(
+            m_arm,
             [this] {
                 return (
                     m_stick3.GetY() / 5
                 );
-            },
-            m_arm
+            }
         )
     );
 
     // Configure the button bindings
     ConfigureButtonBindings();
 
-    // if (m_stick2.GetRawButton(3)){
-    //     speed += 0.01;
-    // }
-    // if (m_stick2.GetRawButton(5)){
-    //     speed -= 0.01;
-    // }
 }
 
 void RobotContainer::ConfigureButtonBindings() {
@@ -131,6 +122,5 @@ void RobotContainer::ConfigureButtonBindings() {
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
-    // An example command will be run in autonomous
     return m_chooser.GetSelected();
 }

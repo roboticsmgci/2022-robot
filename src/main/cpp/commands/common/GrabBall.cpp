@@ -5,7 +5,6 @@
 #include "commands/ArmMove.h"
 #include "commands/IntakeMove.h"
 #include "commands/TankMoveGyro.h"
-#include "commands/TankRawMove.h"
 
 
 GrabBall::GrabBall(
@@ -22,8 +21,8 @@ GrabBall::GrabBall(
         // Move forward while intake in
         frc2::ParallelCommandGroup(
             ArmMove(arm, -0.1, 1.3),
-            TankMoveGyro(drivetrain, 0.5, 0.7),
-            IntakeMove(intake, 0.8, 1.3))
+            IntakeMove(intake, 0.8, 1.3),
+            TankMoveGyro(drivetrain, 0.5, 0.7))
     );
 
 }

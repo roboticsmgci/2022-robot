@@ -60,6 +60,28 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "typeinfo": "cpp",
-    "*.inc": "cpp"
-  }
+    "*.inc": "cpp",
+    "hash_map": "cpp",
+    "hash_set": "cpp",
+    "chrono": "cpp",
+    "codecvt": "cpp",
+    "complex": "cpp",
+    "condition_variable": "cpp",
+    "cstring": "cpp",
+    "ctime": "cpp",
+    "list": "cpp",
+    "unordered_set": "cpp",
+    "filesystem": "cpp",
+    "map": "cpp",
+    "optional": "cpp",
+    "ratio": "cpp",
+    "set": "cpp",
+    "fstream": "cpp",
+    "future": "cpp",
+    "iomanip": "cpp",
+    "mutex": "cpp",
+    "sstream": "cpp",
+    "thread": "cpp",
+    "cinttypes": "cpp"
+}
 }

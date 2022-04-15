@@ -1,5 +1,6 @@
 #include "commands/ArmMove.h"
 
+
 ArmMove::ArmMove(
         Arm& arm,
         double speed,
@@ -15,8 +16,8 @@ ArmMove::ArmMove(
 
 void ArmMove::Initialize(){
 
-    periods = 0;
-    period_target = m_duration * 50;
+    m_periods = 0;
+    m_periodTarget = m_duration * 50;
 
     m_arm->Stop();
 
@@ -25,13 +26,13 @@ void ArmMove::Initialize(){
 void ArmMove::Execute(){
 
     m_arm->Rotate(m_speed);
-    periods++;
+    m_periods++;
 
 }
 
 bool ArmMove::IsFinished(){
 
-    return (periods >= period_target);
+    return (m_periods >= m_periodTarget);
 
 }
 

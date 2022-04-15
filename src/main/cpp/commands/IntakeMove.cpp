@@ -1,5 +1,6 @@
 #include "commands/IntakeMove.h"
 
+
 IntakeMove::IntakeMove(
         Intake& intake,
         double speed,
@@ -15,8 +16,8 @@ IntakeMove::IntakeMove(
 
 void IntakeMove::Initialize(){
 
-    periods = 0;
-    period_target = m_duration * 50;
+    m_periods = 0;
+    m_periodTarget = m_duration * 50;
 
     m_intake->Stop();
 
@@ -25,13 +26,13 @@ void IntakeMove::Initialize(){
 void IntakeMove::Execute(){
 
     m_intake->Rotate(m_speed);
-    periods++;
+    m_periods++;
 
 }
 
 bool IntakeMove::IsFinished(){
 
-    return (periods >= period_target);
+    return (m_periods >= m_periodTarget);
 
 }
 

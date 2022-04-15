@@ -1,10 +1,11 @@
 #include "commands/TankTurn.h"
 
+
 TankTurn::TankTurn(
         Drivetrain& drivetrain, 
-        double angle_target):
-            m_drivetrain(&drivetrain),
-            m_angle_target(angle_target){
+        double angleTarget):
+            m_drivetrain(&drivetrain), 
+            m_angleTarget(angleTarget){
 
     SetName("TankTurn");
     AddRequirements({m_drivetrain});
@@ -18,9 +19,9 @@ void TankTurn::Initialize() {
     m_drivetrain->Drive(0, 0);
 
     // If negative (CCW), turn positive and note CCW
-    if (m_angle_target < 0){
-        m_angle_target = m_angle_target * -1;
-        m_turn_clockwise = false;
+    if (m_angleTarget < 0){
+        m_angleTarget = m_angleTarget * -1;
+        m_clockwise = false;
     }
 
 }
@@ -28,25 +29,26 @@ void TankTurn::Initialize() {
 
 void TankTurn::Execute() {
 
-    m_angle_current = m_drivetrain->m_navX.GetYaw();
+    m_angleCurrent = m_drivetrain->m_navX.GetYaw();
     // If negative (CCW), absolute value
-    if (m_angle_current < 0){
-        m_angle_current = m_angle_current * -1;
+    if (m_angleCurrent < 0){
+        m_angleCurrent = m_angleCurrent * -1;
     }
-    m_angle_current++;
 
-    // Turns CCW
-    if (m_turn_clockwise){
-        m_drivetrain->Drive(-m_turn_speed, m_turn_speed);
+    // Increase by 1 for gyro inconsistencies
+    m_angleCurrent++;
+
+    if (m_clockwise){
+        m_drivetrain->Drive(-m_speed, m_speed);
     } else {
-        m_drivetrain->Drive(m_turn_speed, -m_turn_speed);
+        m_drivetrain->Drive(m_speed, -m_speed);
     }
 
 }
 
 
 bool TankTurn::IsFinished() {
-    return m_angle_current >= m_angle_target - m_turn_error;
+    return m_angleCurrent >= m_angleTarget - m_error;
 }
 
 

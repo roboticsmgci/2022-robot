@@ -7,11 +7,11 @@
 #include "subsystems/Intake.h"
 
 
-class OnlyTaxi: public frc2::CommandHelper<frc2::SequentialCommandGroup, OnlyTaxi> {
+class Ball1: public frc2::CommandHelper<frc2::SequentialCommandGroup, Ball1> {
     
     public:
 
-        OnlyTaxi(Drivetrain& drivetrain, Intake& intake);
+        Ball1(Drivetrain& drivetrain, Intake& intake);
 
     private:
 

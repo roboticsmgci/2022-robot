@@ -5,6 +5,7 @@
 
 #include "subsystems/Drivetrain.h"
 
+
 class TankTurn: public frc2::CommandHelper<frc2::CommandBase, TankTurn> {
 
     public:
@@ -18,14 +19,12 @@ class TankTurn: public frc2::CommandHelper<frc2::CommandBase, TankTurn> {
     private:
 
         Drivetrain* m_drivetrain;
-        double m_angle_target;
+        double m_angleTarget;
 
-        const double m_turn_error = 12;
-        const double m_turn_speed = 0.4;
+        const double m_error = 12;
+        const double m_speed = 0.4;
 
-        double m_angle_current;
-        bool m_turn_clockwise;
-
-        
+        double m_angleCurrent;
+        bool m_clockwise;
 
 };

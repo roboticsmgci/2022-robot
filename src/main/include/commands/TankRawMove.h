@@ -11,7 +11,6 @@ class TankRawMove: public frc2::CommandHelper<frc2::CommandBase, TankRawMove> {
     public:
 
         TankRawMove(Drivetrain& drivetrain, double speedl, double speedr, double duration);
-
         void Initialize() override;
         void Execute() override;
         bool IsFinished() override;
@@ -24,7 +23,7 @@ class TankRawMove: public frc2::CommandHelper<frc2::CommandBase, TankRawMove> {
         double m_speedr;
         double m_duration;
 
-        int period_target;
         int periods;
+        int periodTarget;
 
 };

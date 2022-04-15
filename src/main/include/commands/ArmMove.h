@@ -23,7 +23,7 @@ class ArmMove: public frc2::CommandHelper<frc2::CommandBase, ArmMove> {
         double m_speed;
         double m_duration;
 
-        int period_target;
-        int periods;
+        int m_periods;
+        int m_periodTarget;
 
 };

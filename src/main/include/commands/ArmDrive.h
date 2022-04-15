@@ -5,13 +5,18 @@
 
 #include "subsystems/Arm.h"
 
-class ArmDrive : public frc2::CommandHelper<frc2::CommandBase, ArmDrive> {
+
+class ArmDrive: public frc2::CommandHelper<frc2::CommandBase, ArmDrive> {
+
     public:
-        explicit ArmDrive(std::function<double()> speed, Arm& arm);
+
+        explicit ArmDrive(Arm& arm, std::function<double()> speed);
         void Execute() override;
         void End(bool interrupted) override;
     
     private:
-        std::function<double()> m_speed;
+
         Arm* m_arm;
+        std::function<double()> m_speed;
+
 };

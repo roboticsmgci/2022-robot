@@ -1,17 +1,12 @@
 #include "commands/autonomous/Ball2b.h"
 
-#include "commands/ArmMove.h"
-#include "commands/TankMove.h"
-#include "commands/TankMoveGyro.h"
-#include "commands/TankTurn.h"
-#include "commands/IntakeMove.h"
-
-#include "commands/TankStop.h"
-#include "commands/TankRawMove.h"
-
 #include "commands/common/ArmLower.h"
 #include "commands/common/GrabBall.h"
 #include "commands/common/ScoreBall.h"
+
+#include "commands/TankMoveGyro.h"
+#include "commands/TankTurn.h"
+#include "commands/IntakeMove.h"
 
 
 Ball2b::Ball2b(

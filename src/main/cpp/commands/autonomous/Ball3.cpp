@@ -1,13 +1,13 @@
 #include "commands/autonomous/Ball3.h"
 
+#include "commands/common/ArmLower.h"
+#include "commands/common/GrabBall.h"
+#include "commands/common/ScoreBall.h"
+
 #include "commands/ArmMove.h"
 #include "commands/TankMove.h"
 #include "commands/TankTurn.h"
 #include "commands/IntakeMove.h"
-
-#include "commands/common/ArmLower.h"
-#include "commands/common/GrabBall.h"
-#include "commands/common/ScoreBall.h"
 
 
 Ball3::Ball3(
