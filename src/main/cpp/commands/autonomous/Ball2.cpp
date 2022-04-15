@@ -37,7 +37,7 @@ Ball2::Ball2(
         // Turn back around to face hub
         TankTurn(drivetrain, 180),
         // Move towards hub
-        TankMoveGyro(drivetrain, 1.9, 0.63),
+        TankMove(drivetrain, 1.9, 0.63),
         // Score ball
         ScoreBall(arm, drivetrain, intake)
     );
