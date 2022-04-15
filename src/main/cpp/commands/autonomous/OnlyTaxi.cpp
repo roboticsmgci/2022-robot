@@ -15,7 +15,7 @@ OnlyTaxi::OnlyTaxi(
         // Remove ball
         IntakeMove(intake, -1, 0.3),
         // Taxi out
-        TankMove(drivetrain, -2, 0.5)
+        TankMove(drivetrain, -3, 0.5)
     );
 
 }

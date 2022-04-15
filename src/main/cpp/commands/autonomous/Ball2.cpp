@@ -27,7 +27,7 @@ Ball2::Ball2(
         // Remove ball
         IntakeMove(intake, -1, 0.3),
         // Taxi out
-        TankMoveGyro(drivetrain, -1.4, 0.6),
+        TankMoveGyro(drivetrain, -1.4, 0.63),
         // Break tape
         ArmLower(arm),
         // Turn around to face the ball
@@ -35,9 +35,9 @@ Ball2::Ball2(
         // Get the ball
         GrabBall(arm, drivetrain, intake),
         // Turn back around to face hub
-        TankTurn(drivetrain, -180),
+        TankTurn(drivetrain, 180),
         // Move towards hub
-        TankMoveGyro(drivetrain, 1.9, 0.6),
+        TankMoveGyro(drivetrain, 1.9, 0.63),
         // Score ball
         ScoreBall(arm, drivetrain, intake)
     );
