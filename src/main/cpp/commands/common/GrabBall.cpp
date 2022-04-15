@@ -18,12 +18,12 @@ GrabBall::GrabBall(
 
     SetName("GrabBall");
     AddCommands(
-        ArmMove(arm, -0.15, 0.6),
+        ArmMove(arm, -0.23, 0.6),
         // Move forward while intake in
         frc2::ParallelCommandGroup(
-            ArmMove(arm, -0.1, 1),
-            TankRawMove(drivetrain, 0.5 * 1.1, 0.5 * 1, 1),
-            IntakeMove(intake, 0.5, 1))
+            ArmMove(arm, -0.1, 1.3),
+            TankMoveGyro(drivetrain, 0.5, 0.5),
+            IntakeMove(intake, 0.5, 1.3))
     );
 
 }

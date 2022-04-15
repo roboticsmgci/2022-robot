@@ -12,8 +12,8 @@
 #include <cameraserver/CameraServer.h>
 
 void Robot::RobotInit() {
-    frc::CameraServer::GetInstance()->StartAutomaticCapture(0);
-    frc::CameraServer::GetInstance()->StartAutomaticCapture(1);
+    //frc::CameraServer::GetInstance()->StartAutomaticCapture(0);
+    //frc::CameraServer::GetInstance()->StartAutomaticCapture(1);
     frc::RobotController::SetBrownoutVoltage(6_V);
 }
 
@@ -45,6 +45,7 @@ void Robot::DisabledPeriodic() {}
  */
 
 void Robot::AutonomousInit() {
+    //m_container.m_drivetrain.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
 
     m_autonomousCommand = m_container.GetAutonomousCommand();
 
@@ -57,6 +58,7 @@ void Robot::AutonomousInit() {
 void Robot::AutonomousPeriodic() {}
 
 void Robot::TeleopInit() {
+    //m_container.m_drivetrain.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
 
     // This makes sure that the autonomous stops running when
     // teleop starts running. If you want the autonomous to

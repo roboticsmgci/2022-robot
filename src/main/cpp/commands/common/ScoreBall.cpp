@@ -21,9 +21,8 @@ ScoreBall::ScoreBall(
 
     SetName("ScoreBall");
     AddCommands(
-        TankStop(drivetrain, 0.1),
         // Raise arm
-        ArmMove(arm, 0.4, 1.5),
+        ArmMove(arm, 0.3, 0.7),
         // Move forward while keeping arm up
         frc2::ParallelRaceGroup(
             TankMove(drivetrain, 0.3, 0.4),
@@ -33,7 +32,6 @@ ScoreBall::ScoreBall(
             IntakeMove(intake, -1, 0.3),
             ArmMove(arm, 0.1, 0.3)),
         // Move back
-        TankStop(drivetrain, 0.4),
         TankMove(drivetrain, -2, 0.7),
         ArmLower(arm)
     );

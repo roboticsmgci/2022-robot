@@ -32,10 +32,10 @@ void TankTurnTime::Execute() {
     }
     int time = (period_target - periods)/period_target;
     if (m_angle <= angle){
-        m_drivetrain->Drive(-0.4-0.3*time, 0.4+0.3*time);
+        m_drivetrain->Drive(-0.3-0.3*time, 0.3+0.3*time);
     }
     else{
-        m_drivetrain->Drive(0.4-0.3*time, -0.4+0.3*time);
+        m_drivetrain->Drive(0.3-0.3*time, -0.3+0.3*time);
     }
     periods++;
 }

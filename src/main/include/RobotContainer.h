@@ -30,13 +30,14 @@ class RobotContainer {
     public:
         RobotContainer();
         frc2::Command* GetAutonomousCommand();
+        Drivetrain m_drivetrain;
 
     private:
         frc::Joystick m_stick1{0};
         frc::Joystick m_stick2{1};
         frc::Joystick m_stick3{2};
 
-        Drivetrain m_drivetrain;
+        
         Intake m_intake;
         Arm m_arm;
 

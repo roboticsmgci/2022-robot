@@ -30,6 +30,7 @@ class Drivetrain: public frc2::SubsystemBase {
         void Drive(double left, double right);
         void Log();
         void Periodic() override;
+        void SetIdleMode(rev::CANSparkMax::IdleMode mode);
 
     private:
 

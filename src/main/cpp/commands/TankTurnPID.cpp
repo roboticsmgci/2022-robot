@@ -36,10 +36,10 @@ void TankTurnPID::Execute() {
         correction = -0.4;
     }
     if (m_angle >= 0){
-        m_drivetrain->Drive(-0.4-correction, 0.4+correction);
+        m_drivetrain->Drive(-0.3-correction, 0.3+correction);
     }
     else {
-        m_drivetrain->Drive(0.4-correction, -0.4+correction);
+        m_drivetrain->Drive(0.3-correction, -0.3+correction);
     };
 }
 

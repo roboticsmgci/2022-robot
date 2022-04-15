@@ -17,6 +17,10 @@
 #include "commands/TankTurn.h"
 #include "commands/TankTurnTime.h"
 #include "commands/TankTurnPID.h"
+#include "commands/common/GrabBall.h"
+#include "commands/common/ScoreBall.h"
+#include "commands/common/ArmLower.h"
+#include "commands/TankMoveGyro.h"
 
 RobotContainer::RobotContainer() {
 
@@ -173,24 +177,26 @@ void RobotContainer::ConfigureButtonBindings() {
         IntakeDrive(m_intake, -1)
     );
 
-    // Tank Turn Tuning
     frc2::JoystickButton(&m_stick2, 5).WhenPressed(
-        TankTurn(m_drivetrain, -45)
+        TankTurn(m_drivetrain, 180)
     );
     frc2::JoystickButton(&m_stick2, 3).WhenPressed(
-        TankTurn(m_drivetrain, -135)
-    );
-    frc2::JoystickButton(&m_stick2, 6).WhenPressed(
-        TankTurn(m_drivetrain, 45)
-    );
-    frc2::JoystickButton(&m_stick2, 4).WhenPressed(
-        TankTurn(m_drivetrain, 135)
-    );
-    frc2::JoystickButton(&m_stick3, 5).WhenPressed(
         TankTurn(m_drivetrain, -180)
     );
+    frc2::JoystickButton(&m_stick2, 6).WhenPressed(
+        TankTurnPID(m_drivetrain, 180)
+    );
+    frc2::JoystickButton(&m_stick2, 4).WhenPressed(
+        TankTurnPID(m_drivetrain, -180)
+    );
+    frc2::JoystickButton(&m_stick3, 4).WhenPressed(
+        TankMoveGyro(m_drivetrain, 1, 0.5)
+    );
+    frc2::JoystickButton(&m_stick3, 5).WhenPressed(
+        TankTurnTime(m_drivetrain, 180, 1.5)
+    );
     frc2::JoystickButton(&m_stick3, 6).WhenPressed(
-        TankTurn(m_drivetrain, 180)
+        TankTurnTime(m_drivetrain, -180, 1.5)
     );
 
 }

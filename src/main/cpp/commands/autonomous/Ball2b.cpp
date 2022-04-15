@@ -24,9 +24,9 @@ Ball2b::Ball2b(
 
     SetName("Ball2b");
     AddCommands(
+        TankMoveGyro(drivetrain, 0.6, 0.5),
         GrabBall(arm, drivetrain, intake),
-        TankMoveGyro(drivetrain, -0.9, 0.5),
-        TankStop(drivetrain, 0.3),
+        TankMoveGyro(drivetrain, -2.35, 0.5),
         TankTurn(drivetrain, 158),
         TankMoveGyro(drivetrain, 0.25, 0.45),
         // Score ball
