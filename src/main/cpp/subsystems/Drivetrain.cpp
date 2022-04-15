@@ -14,8 +14,8 @@ Drivetrain::Drivetrain() {
     m_rightFollowMotor.Follow(m_rightLeadMotor);
 
     //Conversion factor from rotations to meters
-    m_leftLeadEncoder.SetPositionConversionFactor(0.0442);
-    m_rightLeadEncoder.SetPositionConversionFactor(0.0442);
+    m_leftLeadEncoder.SetPositionConversionFactor(0.0443);
+    m_rightLeadEncoder.SetPositionConversionFactor(0.0443);
    
     SetName("Drivetrain");
   
@@ -46,6 +46,13 @@ this code and found the need to troubleshoot, I wish you best of luck.
 
 void Drivetrain::Log() {
     frc::SmartDashboard::PutNumber("Gyro", m_navX.GetYaw());
+}
+
+void Drivetrain::SetIdleMode(rev::CANSparkMax::IdleMode mode){
+    m_leftLeadMotor.SetIdleMode(mode);
+    m_rightLeadMotor.SetIdleMode(mode);
+    m_leftFollowMotor.SetIdleMode(mode);
+    m_rightFollowMotor.SetIdleMode(mode);
 }
 
 void Drivetrain::Periodic() {
