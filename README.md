@@ -14,3 +14,4 @@ The rules are generally lax, but here are a few ground rules.
     - `commands/` has lower level commands
  - Includes must be ordered alphabetically, in categories by this order: header, third-party libraries, first-party include
  - Variables are named in camelCase, if they are in an object's scope (i.e. command private), add a `m_` prefix
+ - Follow the [PEP 8](https://peps.python.org/pep-0008/) style guide
