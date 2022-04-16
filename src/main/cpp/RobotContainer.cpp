@@ -1,7 +1,3 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #include "RobotContainer.h"
 
 #include <frc/smartdashboard/SmartDashboard.h>
@@ -13,12 +9,6 @@
 #include "commands/ArmDrive.h"
 #include "commands/IntakeDrive.h"
 
-// Testing
-#include "commands/TankTurn.h"
-#include "commands/common/GrabBall.h"
-#include "commands/common/ScoreBall.h"
-#include "commands/common/ArmLower.h"
-#include "commands/TankMoveGyro.h"
 
 RobotContainer::RobotContainer() {
 
@@ -111,6 +101,7 @@ RobotContainer::RobotContainer() {
 
 }
 
+
 void RobotContainer::ConfigureButtonBindings() {
     frc2::JoystickButton(&m_stick3,3).WhenHeld(
         IntakeDrive(m_intake, 0.5)
@@ -120,6 +111,7 @@ void RobotContainer::ConfigureButtonBindings() {
     );
 
 }
+
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
     return m_chooser.GetSelected();
