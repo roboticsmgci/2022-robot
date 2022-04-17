@@ -26,7 +26,7 @@ void Robot::DisabledPeriodic() {}
 
 void Robot::AutonomousInit() {
 
-    // m_container.m_drivetrain.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
+    m_container.m_drivetrain.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
 
     m_autonomousCommand = m_container.GetAutonomousCommand();
 
@@ -40,7 +40,7 @@ void Robot::AutonomousPeriodic() {}
 
 void Robot::TeleopInit() {
 
-    // m_container.m_drivetrain.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
+    m_container.m_drivetrain.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast);
 
     if (m_autonomousCommand != nullptr) {
         m_autonomousCommand->Cancel();

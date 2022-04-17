@@ -9,6 +9,9 @@
 #include "commands/ArmDrive.h"
 #include "commands/IntakeDrive.h"
 
+//testing
+#include "commands/SetTankMode.h"
+
 
 RobotContainer::RobotContainer() {
 
@@ -110,6 +113,12 @@ void RobotContainer::ConfigureButtonBindings() {
         IntakeDrive(m_intake, -1)
     );
 
+    frc2::JoystickButton(&m_stick3,11).WhenPressed(
+        SetTankMode(m_drivetrain, true)
+    );
+    frc2::JoystickButton(&m_stick3,12).WhenPressed(
+        SetTankMode(m_drivetrain, false)
+    );
 }
 
 

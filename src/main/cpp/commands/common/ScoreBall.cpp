@@ -7,6 +7,7 @@
 #include "commands/ArmMove.h"
 #include "commands/IntakeMove.h"
 #include "commands/TankMove.h"
+#include "commands/SetTankMode.h"
 
 
 ScoreBall::ScoreBall(
@@ -30,6 +31,7 @@ ScoreBall::ScoreBall(
             IntakeMove(intake, -1, 0.3),
             ArmMove(arm, 0.1, 0.3)),
         // Move back
+        SetTankMode(drivetrain, false),
         TankMove(drivetrain, -3, 0.65),
         ArmLower(arm)
     );
