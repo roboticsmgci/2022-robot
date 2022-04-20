@@ -6,16 +6,15 @@
 #include <cmath>
 
 #include "commands/TankDrive.h"
-#include "commands/ArmDrive.h"
-#include "commands/IntakeDrive.h"
 
 
 RobotContainer::RobotContainer() {
 
-    m_chooser.SetDefaultOption("1 Ball", &m_ball1);
+    m_chooser.SetDefaultOption("Only Taxi", &m_onlyTaxi);
+    /*m_chooser.SetDefaultOption("1 Ball", &m_ball1);
     m_chooser.AddOption("2 Ball", &m_ball2);
-    // m_chooser.AddOption("2 Ball v2", &m_ball2b);
-    // m_chooser.AddOption("3 Ball", &m_ball3);
+    m_chooser.AddOption("2 Ball v2", &m_ball2b);
+    m_chooser.AddOption("3 Ball", &m_ball3);*/
 
     frc::SmartDashboard::PutData(&m_chooser);
 
@@ -85,32 +84,13 @@ RobotContainer::RobotContainer() {
         )
     );
 
-    m_arm.SetDefaultCommand(
-        ArmDrive(
-            m_arm,
-            [this] {
-                return (
-                    m_stick3.GetY() / 5
-                );
-            }
-        )
-    );
-
     // Configure the button bindings
     ConfigureButtonBindings();
 
 }
 
 
-void RobotContainer::ConfigureButtonBindings() {
-    frc2::JoystickButton(&m_stick3,3).WhenHeld(
-        IntakeDrive(m_intake, 0.5)
-    );
-    frc2::JoystickButton(&m_stick3,4).WhenHeld(
-        IntakeDrive(m_intake, -1)
-    );
-
-}
+void RobotContainer::ConfigureButtonBindings() {}
 
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

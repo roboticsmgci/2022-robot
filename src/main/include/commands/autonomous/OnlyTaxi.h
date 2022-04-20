@@ -4,18 +4,16 @@
 #include <frc2/command/SequentialCommandGroup.h>
 
 #include "subsystems/Drivetrain.h"
-#include "subsystems/Intake.h"
 
 
-class Ball1: public frc2::CommandHelper<frc2::SequentialCommandGroup, Ball1> {
+class OnlyTaxi: public frc2::CommandHelper<frc2::SequentialCommandGroup, OnlyTaxi> {
     
     public:
 
-        Ball1(Drivetrain& drivetrain, Intake& intake);
+        OnlyTaxi(Drivetrain& drivetrain);
 
     private:
 
         Drivetrain* m_drivetrain;
-        Intake* m_intake;
 
 };
