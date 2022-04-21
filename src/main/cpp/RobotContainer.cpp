@@ -10,7 +10,8 @@
 
 RobotContainer::RobotContainer() {
 
-    m_chooser.SetDefaultOption("Only Taxi", &m_onlyTaxi);
+    m_chooser.SetDefaultOption("1 Ball??? sus", &m_ball1sus);
+    m_chooser.AddOption("Only Taxi", &m_onlyTaxi);
     /*m_chooser.SetDefaultOption("1 Ball", &m_ball1);
     m_chooser.AddOption("2 Ball", &m_ball2);
     m_chooser.AddOption("2 Ball v2", &m_ball2b);

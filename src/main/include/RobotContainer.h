@@ -6,6 +6,7 @@
 #include <frc2/command/Command.h>
 
 #include "commands/autonomous/OnlyTaxi.h"
+#include "commands/autonomous/Ball1sus.h"
 
 #include "subsystems/Drivetrain.h"
 
@@ -24,6 +25,7 @@ class RobotContainer {
         // Autonomous
         frc::SendableChooser<frc2::Command*> m_chooser;
         OnlyTaxi m_onlyTaxi{m_drivetrain};
+        Ball1sus m_ball1sus{m_drivetrain};
 
         // Joysticks
         frc::Joystick m_stick1{0};
