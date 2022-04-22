@@ -24,8 +24,55 @@ RobotContainer::RobotContainer() {
     m_drivetrain.SetDefaultCommand(
         TankDrive(
             m_drivetrain,
-            [this] {},
-            [this] {}
+
+            // Left
+            [this] {
+                
+                double move = m_xbox.GetLeftY();
+                double turn = m_xbox.GetRightX();
+
+                // No move, turning only
+                if (std::abs(move) < 0.01){
+                    return turn;
+                // Yes move
+                } else {
+                    // Move forward and turn
+                    if (move > 0){
+                        return move * (1 + turn/3);
+                    // Move back and turn
+                    } else if (move < 0){
+                        return move * (1 - turn/3);
+                    // No turn, only move
+                    } else {
+                        return move;
+                    }
+                }
+            },
+
+            // Right
+            [this] {
+                
+                double move = m_xbox.GetLeftY();
+                double turn = m_xbox.GetRightX();
+
+                // No move, turning only
+                if (std::abs(move) < 0.01){
+                    return -turn;
+                // Yes move
+                } else {
+                    // Move forward and turn
+                    if (move > 0){
+                        return move * (1 - turn/3);
+                    // Move back and turn
+                    } else if (move < 0){
+                        return move * (1 + turn/3);
+                    // No turn, only move
+                    } else {
+                        return move;
+                    }
+                }
+            }
+
         )
     );
 
