@@ -1,8 +1,8 @@
 #pragma once
 
-#include <frc/Joystick.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/smartdashboard/SendableChooserBase.h>
+#include <frc/XboxController.h>
 #include <frc2/command/Command.h>
 
 #include "commands/autonomous/OnlyTaxi.h"
@@ -28,8 +28,7 @@ class RobotContainer {
         Ball1sus m_ball1sus{m_drivetrain};
 
         // Joysticks
-        frc::Joystick m_stick1{0};
-        frc::Joystick m_stick2{1};
+        frc::XboxController m_xbox{0};
 
         void ConfigureButtonBindings();
 
