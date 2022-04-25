@@ -3,6 +3,7 @@
 #include <AHRS.h>
 #include <frc/controller/PIDController.h>
 #include <frc/drive/DifferentialDrive.h>
+#include <frc/filter/SlewRateLimiter.h>
 #include <frc/SPI.h>
 #include <frc2/command/SubsystemBase.h>
 #include <rev/CANSparkMax.h>
@@ -35,6 +36,11 @@ class Drivetrain: public frc2::SubsystemBase {
         rev::CANSparkMax m_rightFollowMotor{rightFollowID, rev::CANSparkMax::MotorType::kBrushless};
 
         frc::DifferentialDrive m_robotDrive{m_leftLeadMotor, m_rightLeadMotor};
+
+        // Makeshift Slew Rate Limiter
+        double m_lastSpeedLeft;
+        double m_lastSpeedRight;
+        const double m_speedRateLimit = 0.08;
 
     public:
     

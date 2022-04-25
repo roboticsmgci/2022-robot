@@ -4,6 +4,7 @@
 
 #include "subsystems/Drivetrain.h"
 
+#include <cmath>
 #include <frc/Joystick.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
@@ -23,7 +24,24 @@ Drivetrain::Drivetrain() {
 
 
 void Drivetrain::Drive(double left, double right) {
+
+    if (left > m_lastSpeedLeft + m_speedRateLimit){
+        left = m_lastSpeedLeft + m_speedRateLimit;
+    } else if (left < m_lastSpeedLeft - m_speedRateLimit){
+        left = m_lastSpeedLeft - m_speedRateLimit;
+    }
+
+    if (right > m_lastSpeedRight + m_speedRateLimit){
+        right = m_lastSpeedRight + m_speedRateLimit;
+    } else if (right < m_lastSpeedRight - m_speedRateLimit){
+        right = m_lastSpeedRight - m_speedRateLimit;
+    }
+
     m_robotDrive.TankDrive(-left, right);
+
+    m_lastSpeedLeft = left;
+    m_lastSpeedRight = right;
+
 }
 
 
