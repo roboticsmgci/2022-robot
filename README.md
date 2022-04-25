@@ -1,6 +1,10 @@
 # WARNING: Make sure you deploy to the right robot!
 
-Deploying to the wrong robot will permanently damage the motors.
+Deploying to the wrong robot will permanently damage the motors. This code is designed for `03` (Everybot). 
+
+# Thank you for a fun season!
+
+---
 
 # Contributing
 
