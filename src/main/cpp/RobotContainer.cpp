@@ -106,10 +106,12 @@ RobotContainer::RobotContainer() {
 
 void RobotContainer::ConfigureButtonBindings() {
     frc2::JoystickButton(&m_stick3,3).WhenHeld(
-        IntakeDrive(m_intake, 0.5)
+        // intake
+        IntakeDrive(m_intake, -0.5)
     );
     frc2::JoystickButton(&m_stick3,4).WhenHeld(
-        IntakeDrive(m_intake, -1)
+        // shooter
+        IntakeDrive(m_intake, 1)
     );
 
 }
