@@ -16,7 +16,14 @@ ArmDrive::ArmDrive(
 
 
 void ArmDrive::Execute() {
-    m_arm->Rotate(m_speed());
+    double speed = m_speed();
+    if (speed < 0) {
+        // going down
+        m_arm->Rotate(m_speed() / 10);
+    } else {
+        // going up
+        m_arm->Rotate(m_speed() / 2);
+    }    
 }
 
 

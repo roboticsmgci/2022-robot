@@ -92,7 +92,7 @@ RobotContainer::RobotContainer() {
             m_arm,
             [this] {
                 return (
-                    m_stick3.GetY() / 5
+                    m_stick3.GetY()
                 );
             }
         )
