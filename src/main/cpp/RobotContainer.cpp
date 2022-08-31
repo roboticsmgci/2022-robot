@@ -46,10 +46,13 @@ RobotContainer::RobotContainer() {
                                         * (int)!m_stick2.GetRawButton(1)
                                 )
                             )
-                        + m_stick2.GetZ()
-                            * 0.75
+                        + (m_stick2.GetZ()
+                            * 0.5
                             * (int)!m_stick2.GetRawButton(1)
-                        
+                        + m_stick2.GetZ()
+                            * 0.5
+                            * (int)m_stick2.GetRawButton(2)
+                        )
                         ) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
                         // arcade
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
@@ -76,9 +79,13 @@ RobotContainer::RobotContainer() {
                                             * (int)!m_stick2.GetRawButton(1)
                                     )
                                 )
-                            - m_stick2.GetZ()
-                                * 0.75
-                                * (int)!m_stick2.GetRawButton(1)
+                        - (m_stick2.GetZ()
+                            * 0.5
+                            * (int)!m_stick2.GetRawButton(1)
+                        + m_stick2.GetZ()
+                            * 0.5
+                            * (int)m_stick2.GetRawButton(2)
+                        )
                         ) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
                         // arcade
                     ) * ((-m_stick2.GetThrottle() + 2) / 3)
