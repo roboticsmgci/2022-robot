@@ -22,7 +22,7 @@ void ArmDrive::Execute() {
         m_arm->Rotate(m_speed() / 10);
     } else {
         // going up
-        m_arm->Rotate(m_speed() / 2);
+        m_arm->Rotate(m_speed() / 4);
     }    
 }
 
