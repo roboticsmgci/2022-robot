@@ -13,7 +13,7 @@ Ball1::Ball1(
     SetName("Ball1");
     AddCommands(
         // Remove ball
-        IntakeMove(intake, -1, 0.3),
+        IntakeMove(intake, 1, 0.5),
         // Taxi out
         TankMove(drivetrain, -3, 0.5)
     );
