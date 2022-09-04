@@ -21,7 +21,7 @@ Ball2::Ball2(
     SetName("Ball2");
     AddCommands(
         // Remove ball
-        IntakeMove(intake, -1, 0.3),
+        IntakeMove(intake, 1, 0.3),
         // Taxi out
         TankMoveGyro(drivetrain, -1.4, 0.63),
         // Break tape

@@ -21,7 +21,7 @@ GrabBall::GrabBall(
         // Move forward while intake in
         frc2::ParallelCommandGroup(
             ArmMove(arm, -0.1, 1.3),
-            IntakeMove(intake, 0.8, 1.3),
+            IntakeMove(intake, -1, 1.3),
             TankMoveGyro(drivetrain, 0.5, 0.7))
     );
 

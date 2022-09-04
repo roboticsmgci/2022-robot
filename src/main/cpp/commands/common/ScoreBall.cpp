@@ -27,7 +27,7 @@ ScoreBall::ScoreBall(
             ArmMove(arm, 0.1, 5)),
         // Dump ball while keeping arm up
         frc2::ParallelCommandGroup(
-            IntakeMove(intake, -1, 0.3),
+            IntakeMove(intake, 1, 0.3),
             ArmMove(arm, 0.1, 0.3)),
         // Move back
         TankMove(drivetrain, -3, 0.65),
