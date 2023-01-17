@@ -1,18 +1,22 @@
 <div align="center">
 
-![](https://img.shields.io/badge/license-WPILib-orange)
-![](https://img.shields.io/github/v/release/roboticsmgci/2022-robot)
-![](https://img.shields.io/github/contributors/roboticsmgci/2022-robot)
-![](https://img.shields.io/github/last-commit/roboticsmgci/2022-robot)
-![](https://img.shields.io/badge/deploy%20to-8574__03-blue)
-![](https://img.shields.io/badge/made%20with-c%2B%2B-blue)
+ # FRC 8574 (Audeamus)'s 2022 Season Robot
 
-![](https://img.shields.io/badge/ontario%20district-rookie%20all%20stars-brightgreen?style=for-the-badge)
-![](https://img.shields.io/badge/world%20championships-had%20fun-brightgreen?style=for-the-badge)
+ ![](https://img.shields.io/badge/license-WPILib-orange)
+ ![](https://img.shields.io/github/v/release/roboticsmgci/2022-robot)
+ ![](https://img.shields.io/github/contributors/roboticsmgci/2022-robot)
+ ![](https://img.shields.io/github/last-commit/roboticsmgci/2022-robot)
+ ![](https://img.shields.io/badge/deploy%20to-8574__03-blue)
+ ![](https://img.shields.io/badge/made%20with-c%2B%2B-blue)
+
+ ![](https://img.shields.io/badge/ontario%20district-rookie%20all%20stars-%23ffbf00?style=for-the-badge)
+ ![](https://img.shields.io/badge/world%20championships-had%20fun-brightgreen?style=for-the-badge)
 
 </div>
 
-# WARNING: Make sure you deploy to the right robot!
+---
+
+## ⚠ Make sure you deploy to the right robot!
 
 Deploying to the wrong robot will permanently damage the motors. This code is designed for `03` (Everybot). 
 
